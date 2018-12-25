@@ -22,4 +22,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
    2. [Descargando torrents automáticamente](./raspi/2) / [video](https://youtu.be/pZArt1yEw_o)
    3. [Plex sobre Docker en Raspbery](https://github.com/pablokbs/plex-rpi) / [video](https://youtu.be/Y7sTa4zvKWQ)
+3. Kubernetes
+   1. [Creando un cluster de Kubernetes con Digital Ocean](./kubernetes/1) / [video](https://youtu.be/fhYSKEy0s8w)
+
    
