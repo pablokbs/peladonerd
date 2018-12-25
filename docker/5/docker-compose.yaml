@@ -1,0 +1,45 @@
+version: "2"
+
+services:
+
+  samba:
+    image: dperson/samba:rpi
+    restart: always
+    command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    stdin_open: true
+    tty: true
+    ports:
+      - 139:130
+      - 445:445
+    volumes:
+      - /usr/share/zoneinfo/America/Argentina/Mendoza:/etc/localtime
+      - /home/pi/media:/media
+      - /home/pi/downloads:/downloads
+    networks:
+      lan:
+        ipv4_address: 192.168.0.6
+
+
+  rtorrent:
+    image: pablokbs/rutorrent-armhf
+    ports:
+      - 80:80
+      - 51413:51413
+      - 6881:6881/udp
+    volumes:
+      - /home/pi/torrents-config/rtorrent:/config/rtorrent
+      - /home/pi/downloads:/downloads
+    restart: always
+    networks:
+      lan:
+        ipv4_address: 192.168.0.5
+
+networks:
+  lan:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: "192.168.0.1"
