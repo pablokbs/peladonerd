@@ -47,7 +47,7 @@ sudo apt-get update && sudo apt-get install -y docker-ce docker-compose
 ### 7. Agregar usuario al grupo docker y desloguearse y volverse a loguear
 
 ```
-sudo usermod -a -G docker kbs
+sudo usermod -a -G docker <usuario>
 #(logout and login)
 ```
 
