@@ -9,7 +9,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 139:130
+      - 139:139
       - 445:445
     volumes:
       - /usr/share/zoneinfo/America/Argentina/Mendoza:/etc/localtime
