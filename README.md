@@ -24,6 +24,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    3. [Plex sobre Docker en Raspbery](https://github.com/pablokbs/plex-rpi) / [video](https://youtu.be/Y7sTa4zvKWQ)
 3. Kubernetes
    1. [Creando un cluster de Kubernetes con Digital Ocean](./kubernetes/1) / [video](https://youtu.be/fhYSKEy0s8w)
+   2. [Servicios y Load Balancers](./kubernetes/2) / [video](https://youtu.be/0iMEcrcfG5A)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)   
