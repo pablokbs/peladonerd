@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: k8s.gcr.io/hpa-example
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "password"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

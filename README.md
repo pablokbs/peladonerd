@@ -27,6 +27,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    2. [Servicios y Load Balancers](./kubernetes/2) / [video](https://youtu.be/0iMEcrcfG5A)
    3. [Deployments](./kubernetes/3) / [video](https://youtu.be/q-ZicDSb3Cc)
    4. [Requests y limites](./kubernetes/4) / [video](https://youtu.be/xTTJg1aJ4kg)
+   5. [HPA](./kubernetes/5) / [video](https://youtu.be/T6wRsmrm_gk)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)   
