@@ -1,0 +1,11 @@
+# Ejemplo de un config ssh para acceder facilmente a tu server sin tener que recordar los puertos y el hostname
+# Este archivo tiene que ir en ~/.ssh/config
+
+Host home
+Hostname myhosten.no-ip.com
+        User peladonerd
+        LocalForward 8100 192.168.0.1:80 # acceso a mi modem
+        LocalForward 8200 192.168.0.2:80 # acceso a mi router wifi
+        LocalForward 8900 192.168.0.9:80 # acceso a interfaz web de rutorrent
+        LocalForward 32400 192.168.0.3:32400 # acceso a plex
+
