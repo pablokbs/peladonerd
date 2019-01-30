@@ -36,12 +36,19 @@ sudo apt-key fingerprint 0EBFCD88
 echo "deb [arch=armhf] https://download.docker.com/linux/debian \
      $(lsb_release -cs) stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list
+    
+NOTA: las versiones de docker mayores a 18.06 estaan presentando problemas sobre raspbian. Si encuentran problemas de "Segmentation fault" o que el demonio no inicia, pueden evitar que versiones superiores se instalen de la siguiente forma
+
+echo "Package: docker-ce
+Pin: version 18.06.1*
+Pin-Priority: 1000" > /etc/apt/preferences.d/docker-ce
 ```
+
 
 ### 6. Instalar Docker
 
 ```
-sudo apt-get update && sudo apt-get install -y docker-ce docker-compose
+sudo apt-get update && sudo apt-get install -y --no-install-recommends docker-ce docker-compose
 ```
 
 ### 7. Agregar usuario al grupo docker y desloguearse y volverse a loguear
