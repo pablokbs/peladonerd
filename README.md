@@ -13,11 +13,12 @@ Como siempre, cualquier contribución es bienvenida, simplemente forkeá este re
 Si el nombre del capítulo no tiene link, es porque no necesité postear ningún archivo.
 
 1. Docker
-	1. Introducción a Docker/ [video](https://youtu.be/vjnOIE-CwMU)
-	2. Imágenes / [video](https://youtu.be/a8sf54TCRN4)
-	3. Volúmenes y puertos / [video](https://youtu.be/pliGG1M87W8)
-	4. [Docker-compose](./docker/4) / [video](https://youtu.be/eoFxMaeB9H4)
-	5. [Networking](./docker/5) / [video](https://youtu.be/BNHNMoSJz4g)
+   1. Introducción a Docker/ [video](https://youtu.be/vjnOIE-CwMU)
+   2. Imágenes / [video](https://youtu.be/a8sf54TCRN4)
+   3. Volúmenes y puertos / [video](https://youtu.be/pliGG1M87W8)
+   4. [Docker-compose](./docker/4) / [video](https://youtu.be/eoFxMaeB9H4)
+   5. [Networking](./docker/5) / [video](https://youtu.be/BNHNMoSJz4g)
+   6. [Multi Stage Builds](./docker/6) / [video](https://youtu.be/62r32R75iZs)
 2. Raspberry
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
    2. [Descargando torrents automáticamente](./raspi/2) / [video](https://youtu.be/pZArt1yEw_o)
