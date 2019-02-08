@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alertmanager-config
+  namespace: monitoring
+data:
+  alertmanager.yml: |-
+    global:
+      resolve_timeout: 5m
+      slack_api_url: 'https://hooks.slack.com/services/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'
+  
+    route:
+      group_by: ['alertname', 'cluster', 'service']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 3h
+      # A default receiver
+      receiver: default-receiver
+      routes:
+      - match:
+          severity: critical
+        receiver: default-receiver
+      - match: 
+          severity: warning
+        receiver: default-receiver
+
+    receivers:
+    - name: default-receiver
+      slack_configs:
+        - send_resolved: true
+          channel: '#alertas'
+          text: '{{ template "slack.default.text" . }}'
+          title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
