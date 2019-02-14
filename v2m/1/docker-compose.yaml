@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx:1.14.2-alpine
+    environment:
+      - MYSQL_PASSWORD=produccion
