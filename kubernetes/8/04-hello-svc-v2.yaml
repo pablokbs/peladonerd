@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-v2-svc
+spec:
+  selector:
+    app: hello-v2
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
