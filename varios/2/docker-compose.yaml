@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    image: traefik # The official Traefik docker image
+    command:  --docker --logLevel=info \
+              --acme \
+              --acme.acmelogging \
+              --acme.dnschallenge=false \
+              --acme.entrypoint="https" \
+              --acme.httpchallenge \
+              --acme.httpChallenge.entryPoint="http" \
+              --acme.onhostrule=true \
+              --acme.storage="/etc/traefik/acme.json" \
+              --acme.email="pablo@fredrikson.com.ar" \
+              --entrypoints="Name:http Address::80 Redirect.EntryPoint:https" \
+              --entrypoints="Name:https Address::443 TLS" \
+              --defaultentrypoints="http,https"
+    ports:
+      - "80:80"     # The HTTP port
+      - "443:443"     # The HTTPS port
+      - "8080:8080" # The Web UI (enabled by --api)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik:/etc/traefik/
+
+  whoami:
+    image: containous/whoami
+    labels:
+      - "traefik.frontend.rule=Host:whoami.fredrikson.com.ar"
