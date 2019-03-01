@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    traefik.ingress.kubernetes.io/service-weights: |
+      hello-v2-svc: 10%
+spec:
+  rules:
+  - host: v1.peladonerd.local 
+    http:
+      paths:
+      - backend:
+          serviceName: hello-v1-svc
+          servicePort: 80
+      - backend:
+          serviceName: hello-v2-svc
+          servicePort: 80
