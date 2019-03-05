@@ -43,3 +43,6 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
+
+6. Terraform
+   1. [Terraform 1](./terraform/1) / [video](https://www.youtube.com/watch?v=1itPqkU8XZw)
