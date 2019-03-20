@@ -36,6 +36,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    6. [Liveness y Readiness Probes](./kubernetes/6) / [video](https://youtu.be/5gSc1ouW8rM)
    7. [Prometheus](./kubernetes/7) / [video](https://youtu.be/yvUQMdgbz_c)
    8. [Ingress](./kubernetes/8) / [video](https://youtu.be/pzFirwIpMag)
+   9. [Daemonsets](./kubernetes/9) / [video](https://youtu.be/zKnJQ7A2pFM)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
@@ -45,4 +46,5 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
 
 6. Terraform
-   1. [Terraform 1](./terraform/1) / [video](https://www.youtube.com/watch?v=1itPqkU8XZw)
+   1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
+   2. [Terraform 2](./terraform/2) / [video](https://youtu.be/i2LJAQVKYeY)
