@@ -56,7 +56,7 @@ resource "kubernetes_daemonset" "fluentd" {
 
           env {
             name = "LOGGLY_URL"
-            value = "https://logs-01.loggly.com/inputs/51a81113-8511-4efe-b215-74a027406dfd/tag/k8"
+            value = "https://logs-01.loggly.com/inputs/reemplazar-con-token/tag/k8"
           }
 
           resources{
