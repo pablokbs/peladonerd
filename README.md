@@ -37,6 +37,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    7. [Prometheus](./kubernetes/7) / [video](https://youtu.be/yvUQMdgbz_c)
    8. [Ingress](./kubernetes/8) / [video](https://youtu.be/pzFirwIpMag)
    9. [Daemonsets](./kubernetes/9) / [video](https://youtu.be/zKnJQ7A2pFM)
+   10. [Logstash](./kubernetes/10) / [video](https://youtu.be/LGm-DbLfJLM)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
