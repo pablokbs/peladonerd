@@ -24,7 +24,7 @@ spec:
           - '/usr/sbin/td-agent 2>&1 >> /var/log/fluentd.log'
         env:
           - name: LOGGLY_URL
-            value: "https://logs-01.loggly.com/inputs/51a81113-8511-4efe-b215-74a027406dfd/tag/k8s"
+            value: "https://logs-01.loggly.com/inputs/reemplazar-con-token  /tag/k8s"
         resources:
           limits:
             memory: 200Mi
