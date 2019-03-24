@@ -19,7 +19,7 @@ data:
     }
     output {
       loggly {
-        key => "51a81113-8511-4efe-b215-74a027406dfd"
+        key => "pone-tu-token-de-loggly-aca"
         tag => "logstash,kubernetes"
         host => "logs-01.loggly.com."
         proto => "https"
