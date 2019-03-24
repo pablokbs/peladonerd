@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: logging
+  name: logstash
+  labels:
+    app: logstash
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: logstash
+  template:
+    metadata:
+      labels:
+        app: logstash
+    spec:
+      containers:
+        - name: logstash
+          image: docker.elastic.co/logstash/logstash:6.5.2
+          command:
+            - '/bin/sh'
+            - '-c'
+            - 'logstash-plugin install logstash-output-loggly && logstash-plugin install logstash-filter-prune && /usr/local/bin/docker-entrypoint '
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: config
+              mountPath: /usr/share/logstash/pipeline
+          env:
+            - name: XPACK_MONITORING_ENABLED
+              value: "false"
+      volumes:
+        - name: config
+          configMap:
+            name: logstash-config
+            items:
+              - key: logstash.conf
+                path: logstash.conf
