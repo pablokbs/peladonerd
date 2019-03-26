@@ -20,6 +20,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    5. [Networking](./docker/5) / [video](https://youtu.be/BNHNMoSJz4g)
    6. [Multi Stage Builds](./docker/6) / [video](https://youtu.be/62r32R75iZs)
    7. [CI/CD](https://github.com/pablokbs/hola-docker) / [video](https://youtu.be/fFze33y5-RM)
+   8. [Swarm](./docker/8) / [video](https://youtu.be/jRYRC3ZZPW8) 
 
 2. Raspberry
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
@@ -45,6 +46,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
+   2. [Docker secrets](./v2m/2) / [video](https://youtu.be/YbColFoz3ms)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
