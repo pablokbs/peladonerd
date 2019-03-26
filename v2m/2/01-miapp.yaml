@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: miapp
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: miapp
+    spec:
+      containers:
+      - name: miapp
+        image: docker.io/pablokbs/miapp
+        imagePullPolicy: Always
+      imagePullSecrets:
+       - name: docker-secret

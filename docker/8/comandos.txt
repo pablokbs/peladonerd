@@ -1,0 +1,35 @@
+Comandos que corrí:
+
+Crear maquinas:
+
+```
+$ docker-machine create manager1
+$ docker-machine create worker1
+$ docker-machine create worker2
+```
+
+Iniciar swarm:
+
+```
+$ docker swarm init --advertise-addr <IP>
+$ docker swarm join --token <token> <IP>:2377
+```
+
+Servicios:
+
+```
+
+$ docker service create --replicas 1 --name helloworld alpine ping docker.com
+$  docker service create \
+  --replicas 3 \
+  --name redis \
+  --update-delay 10s \
+  redis:3.0.6
+$ docker service update --image redis:3.0.7 redis
+
+$ docker service create \
+  --name my-web \
+  --publish published=8080,target=80 \
+  --replicas 2 \
+  nginx
+```
