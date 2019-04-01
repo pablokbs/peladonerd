@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-02
+  labels:
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: index
+
+  volumes:
+    - name: index
+      configMap:
+        name: index-html
+        items:
+          - key: index.html
+            path: index.html
