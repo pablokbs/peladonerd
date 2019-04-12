@@ -21,6 +21,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    6. [Multi Stage Builds](./docker/6) / [video](https://youtu.be/62r32R75iZs)
    7. [CI/CD](https://github.com/pablokbs/hola-docker) / [video](https://youtu.be/fFze33y5-RM)
    8. [Swarm](./docker/8) / [video](https://youtu.be/jRYRC3ZZPW8) 
+   9. [Multi-Arch Builds](./docker/9) / [video](https://youtu.be/oqbHdn1oNCs) 
 
 2. Raspberry
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
@@ -40,6 +41,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    9. [Daemonsets](./kubernetes/9) / [video](https://youtu.be/zKnJQ7A2pFM)
    10. [Logstash](./kubernetes/10) / [video](https://youtu.be/LGm-DbLfJLM)
    11. [Volumenes (parte 1)](./kubernetes/11) / [video](https://youtu.be/buHYhCyfTKk)
+   12. [Volumenes (parte 2)](./kubernetes/12) / [video](https://youtu.be/vjGBzCVs2dE)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
