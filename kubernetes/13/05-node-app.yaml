@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-mongo
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: node-mongo
+    spec:
+      containers:
+      - name: node-mongo
+        image: husseingalal/letschat2
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 8080
+        env:
+        - name: LCB_DATABASE_URI
+          value: "mongodb://mongo-0.mongo:27017,mongo-1.mongo:27017,mongo-2.mongo:27017/member-management"

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+spec:
+  ports:
+  - port: 27017
+    name: peer
+  clusterIP: None
+  selector:
+    app: mongo
