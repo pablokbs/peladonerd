@@ -42,6 +42,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    10. [Logstash](./kubernetes/10) / [video](https://youtu.be/LGm-DbLfJLM)
    11. [Volumenes (parte 1)](./kubernetes/11) / [video](https://youtu.be/buHYhCyfTKk)
    12. [Volumenes (parte 2)](./kubernetes/12) / [video](https://youtu.be/vjGBzCVs2dE)
+   13. [StatefulSets](./kubernetes/13) / [video](https://www.youtube.com/watch?v=Gp6LNymkw70)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
