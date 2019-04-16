@@ -7,4 +7,5 @@ write_files:
     content: |
       Sos un capo de terraform
 runcmd:
+  - cd /root
   - docker run -d -v /root/index.html:/usr/share/nginx/html/index.html -p 80:80 nginx

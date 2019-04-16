@@ -1,0 +1,31 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+  - docker-compose
+write_files:
+  - path: /root/docker-compose.yaml
+    content: |
+      version: "3.4"
+
+      services:
+        poste:
+          image: analogic/poste.io
+          restart: always
+          network_mode: "host"
+          expose:
+            - 25
+            - 80
+            - 443
+            - 110
+            - 143
+            - 465
+            - 587
+            - 993
+            - 995
+          volumes:
+            - /root/mail-data:/data
+          environment:
+            - HTTPS=ON
+runcmd:
+  - docker-compose -f /root/docker-compose.yaml up -d
