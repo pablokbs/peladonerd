@@ -47,6 +47,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
    2. [Traefik](./varios/2) / [video](https://youtu.be/6qkhvhv0_IU)
+   3. [Poste](./terraform/3) / [video](https://youtu.be/K4-uD1VHCz0)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
