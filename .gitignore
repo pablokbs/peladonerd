@@ -1,1 +1,4 @@
 varios/1/certs
+.DS_Store
+*.tfstate
+extra/
