@@ -1,0 +1,57 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+  - docker-compose
+write_files:
+  - path: /root/docker-compose.yaml
+    content: |
+      version: "3"
+
+      services:
+        gitlab:
+          image: gitlab/gitlab-ce
+          restart: always
+          ports:
+            - '2020:22'
+          expose:
+            - '80'
+          volumes:
+            - ./gitlab/config:/etc/gitlab
+            - ./gitlab/logs:/var/log/gitlab
+            - ./gitlab/data:/var/opt/gitlab
+          environment:
+            - GITLAB_OMNIBUS_CONFIG='external_url \'https://git.pablokbs.com\''
+            - VIRTUAL_HOST=git.pablokbs.com
+            - VIRTUAL_PORT=80
+            - LETSENCRYPT_HOST=git.pablokbs.com
+            - LETSENCRYPT_EMAIL=pablo@pablokbs.com
+
+        nginx:
+          image: jwilder/nginx-proxy
+          restart: always
+          ports:
+            - '80:80'
+            - '443:443'
+          volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./nginx/certs:/etc/nginx/certs:ro
+            - vhost:/etc/nginx/vhost.d
+            - html:/usr/share/nginx/html
+          labels:
+            - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+        letsencrypt:
+          image: jrcs/letsencrypt-nginx-proxy-companion
+          restart: always
+          volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - ./nginx/certs:/etc/nginx/certs
+            - vhost:/etc/nginx/vhost.d
+            - html:/usr/share/nginx/html
+
+      volumes:
+        vhost:
+        html:
+runcmd:
+  - docker-compose -f /root/docker-compose.yaml up -d

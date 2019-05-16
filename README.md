@@ -45,6 +45,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    13. [StatefulSets](./kubernetes/13) / [video](https://www.youtube.com/watch?v=Gp6LNymkw70)
    14. [CI/CD](./kubernetes/14) [Repo con los archivos CircleCI](https://github.com/peladonerd/flisol2019)/ [video](https://youtu.be/o5-QPfh-piM)
    15. [Wordpres + MySQL](./kubernetes/15) / [video](https://youtu.be/TnME3zam7Zo)
+   16. [ENVs y Secrets](./kubernetes/16) / [video](https://youtu.be/T7lRHHa4YxE)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
@@ -56,6 +57,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    2. [Docker secrets](./v2m/2) / [video](https://youtu.be/YbColFoz3ms)
    3. [Minikube](./v2m/3) / [video](https://youtu.be/6e_sXAx7kts)
    4. [OpenVPN](./v2m/4) / [video](https://youtu.be/TPVH6t8ylPg)
+   5. [GitLab](./v2m/5) / [video](https://youtu.be/bpWymXNsLAs)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
