@@ -54,7 +54,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
-   2. [Docker secrets](./v2m/2) / [video](https://youtu.be/YbColFoz3ms)
+   2. [Kubernetes secrets](./v2m/2) / [video](https://youtu.be/YbColFoz3ms)
    3. [Minikube](./v2m/3) / [video](https://youtu.be/6e_sXAx7kts)
    4. [OpenVPN](./v2m/4) / [video](https://youtu.be/TPVH6t8ylPg)
    5. [GitLab](./v2m/5) / [video](https://youtu.be/bpWymXNsLAs)
