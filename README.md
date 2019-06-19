@@ -58,6 +58,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    3. [Minikube](./v2m/3) / [video](https://youtu.be/6e_sXAx7kts)
    4. [OpenVPN](./v2m/4) / [video](https://youtu.be/TPVH6t8ylPg)
    5. [GitLab](./v2m/5) / [video](https://youtu.be/bpWymXNsLAs)
+   6. [Pi-Hole](./v2m/6) / [video](https://youtu.be/qc8mkWtwY9c)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
