@@ -1,0 +1,49 @@
+#Traefik Global Configuration
+debug = false
+checkNewVersion = true
+logLevel = "ERROR"
+
+#Define the EntryPoint for HTTP and HTTPS
+defaultEntryPoints = ["https","http"]
+
+#Define the HTTP port 80 and
+[entryPoints]
+[entryPoints.http]
+address = ":80"
+#HTTPS port 443 EntryPoint
+[entryPoints.https]
+address = ":443"
+[entryPoints.https.tls]
+#entrypoint for dashboard in traefik using 8080 and user for login
+[entryPoints.foo]
+address=":8080"
+[entryPoints.foo.auth]
+[entryPoints.foo.auth.basic]
+users = ["user:$apr1$2g1y7wk4$LHqGZVtxKmzDpGzRTk6Pn1"]
+
+#Enable retry sending a request if the network error
+[retry]
+
+[api]
+entryPoint = "foo"
+dashboard = true
+debug = true
+[api.statistics]
+recentErrors = 10
+
+#Define Docker Backend Configuration
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "monitor.localhost.com"
+watch = true
+exposedbydefault = true
+
+#Letsencrypt Registration
+#Define the Letsencrypt ACME HTTP challenge
+[acme]
+email = "your@email.com"
+storage = "acme.json"
+entryPoint = "https"
+OnHostRule = true
+  [acme.httpChallenge]
+  entryPoint = "http"
