@@ -23,7 +23,7 @@ $ sudo cp ../traefik/ /opt/docker/traefik/
  
 ```
 
-# Configuring the domain of our wordpress
+# Configuring the domain of our Traefik Dashboard
 
 Within the docker file compose on line 15 this domain of our site must be changed so that bringfik can identify the request with which we are working
 
