@@ -1,30 +1,26 @@
 version: '3'
 
 services:
-  reverse-proxy:
-    image: traefik # The official Traefik docker image
-    command:  --docker --logLevel=info \
-              --acme \
-              --acme.acmelogging \
-              --acme.dnschallenge=false \
-              --acme.entrypoint="https" \
-              --acme.httpchallenge \
-              --acme.httpChallenge.entryPoint="http" \
-              --acme.onhostrule=true \
-              --acme.storage="/etc/traefik/acme.json" \
-              --acme.email="pablo@fredrikson.com.ar" \
-              --entrypoints="Name:http Address::80 Redirect.EntryPoint:https" \
-              --entrypoints="Name:https Address::443 TLS" \
-              --defaultentrypoints="http,https"
+
+  traefik:
+    image: traefik:${TRAEFIK_VERSION} # for use in production always use an specific version
+    command: --docker --docker.domain=${DOMAIN} # domain to redirect the request
     ports:
-      - "80:80"     # The HTTP port
-      - "443:443"     # The HTTPS port
-      - "8080:8080" # The Web UI (enabled by --api)
+      - ${HTTP_PORT}:80 # default port for reverse proxy
+      - ${HTTPS_PORT}:443 # default port for reverse proxy
+    networks:
+      - proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik:/etc/traefik/
-
-  whoami:
-    image: containous/whoami
+      - ${TRAEFIK_TOML_FILE_ROUTE}:/traefik.toml # master file to save all the config for traefik
+      - ${TRAEFIK_ACME_FILE_ROUTE}:/acme.json # autogenerate reading the config file (traefik.toml)
+      - ${TRAEFIK_TMP_ROUTE}:/tmp
     labels:
-      - "traefik.frontend.rule=Host:whoami.fredrikson.com.ar"
+      - "traefik.frontend.rule=Host:monitor.${DOMAIN}" # domain to access the dashboard odd traefik
+      - "traefik.port=8080" # default port to access the dashboard for traefik
+    container_name: traefik
+    restart: always
+
+networks:
+  proxy: # new docker network to work
+external: true
