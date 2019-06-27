@@ -1,0 +1,16 @@
+---
+version: "2"
+services:
+  duckdns:
+    image: linuxserver/duckdns
+    container_name: duckdns
+    environment:
+      - PUID=1000 #optional
+      - PGID=1000 #optional
+      - TZ=Europe/London
+      - SUBDOMAINS=subdomain1,subdomain2
+      - TOKEN=token
+      - LOG_FILE=false #optional
+    volumes:
+      - /path/to/appdata/config:/config #optional
+    restart: unless-stopped
