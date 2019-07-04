@@ -1,0 +1,20 @@
+version: "2"
+
+services:  
+  rsnapshot:
+    image: pablokbs/rsnapshot-cron
+    restart: always
+    volumes:
+      - /etc:/host/etc:ro
+      - /home/pi:/host/home/pi:ro
+      - /mnt/storage/backup/raspberrypi:/snapshots
+      - /usr/share/zoneinfo/America/Argentina/Mendoza:/etc/localtime
+    environment:
+      - BACKUP_DIRECTORIES=/host/      raspberrypi/
+      - CRON_DAILY=0 0 5 * * *
+      - CRON_WEEKLY=0 0 6 * * 1
+      - CRON_MONTHLY=0 30 6 1 * *
+      - RSNAPSHOT_HOURLY_TIMES=0
+      - RSNAPSHOT_DAILY_TIMES=7
+      - RSNAPSHOT_WEEKLY_TIMES=4
+      - RSNAPSHOT_MONTHLY_TIMES=3
