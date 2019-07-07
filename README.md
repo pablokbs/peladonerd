@@ -46,6 +46,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    14. [CI/CD](./kubernetes/14) [Repo con los archivos CircleCI](https://github.com/peladonerd/flisol2019)/ [video](https://youtu.be/o5-QPfh-piM)
    15. [Wordpres + MySQL](./kubernetes/15) / [video](https://youtu.be/TnME3zam7Zo)
    16. [ENVs y Secrets](./kubernetes/16) / [video](https://youtu.be/T7lRHHa4YxE)
+   17. [Prometheus 2: Grafana](./kubernetes/17) / [video](https://youtu.be/_mJPvzMStPI)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
@@ -61,6 +62,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    6. [Pi-Hole](./v2m/6) / [video](https://youtu.be/qc8mkWtwY9c)
    7. [DuckDNS](./v2m/7) / [video](https://youtu.be/MLjKbake8HM)
    8. [Rsnapshot](./v2m/8) / [video](https://youtu.be/gxJqpBsPseM)
+   9. [Cups](./v2m/9) / [video](https://youtu.be/_O2ik-JPq8Y)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
