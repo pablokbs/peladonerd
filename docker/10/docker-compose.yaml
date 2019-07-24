@@ -1,0 +1,94 @@
+version: '2'
+
+services:
+
+  registry:
+    image: registry:2
+    restart: always
+    expose:
+      - "5000"
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+      REGISTRY_HTTP_HOST: docker.peladonerd.com
+      REGISTRY_HTTP_ADDR: :5000
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm" 
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/cert.pem
+      REGISTRY_HTTP_TLS_KEY: /certs/key.pem
+      LETSENCRYPT_HOST: docker.peladonerd.com
+      LETSENCRYPT_EMAIL: pablo@peladonerd.com
+      # REGISTRY_STORAGE: s3
+      # REGISTRY_STORAGE_S3_ACCESSKEY: <api access key>
+      # REGISTRY_STORAGE_S3_SECRETKEY: <api secret>
+      # REGISTRY_STORAGE_S3_BUCKET: <bucket name>
+      # REGISTRY_STORAGE_S3_REGION: <region>
+      # REGISTRY_HEALTH_STORAGEDRIVER_ENABLED: false
+    volumes:
+      - ./auth:/auth
+      - ./data:/var/lib/registry
+      - ./certs/docker.peladonerd.com:/certs
+
+  # We are using these 2 containers because automatic TLS certs from docker registry don't work
+  # Estamos usando estos 2 contenedores porque los certs automaticos con docker registry no funcionan
+  # https://github.com/docker/distribution/issues/2545
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - ./certs:/etc/nginx/certs:ro
+      - ./nginx-custom.conf:/etc/nginx/conf.d/custom.conf:ro
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    volumes:
+      - ./certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    volumes_from:
+      - nginx-proxy:rw
+
+  ui:
+    image: jc21/registry-ui
+    expose:
+      - "80"
+    environment:
+      REGISTRY_HOST: docker.peladonerd.com:5000
+      REGISTRY_SSL: "true"
+      REGISTRY_DOMAIN: docker.peladonerd.com
+      # Tienes que crear este usuario para que ui se pueda conectar al registry con auth
+      # You gotta create this user for the ui to connect to the registry using auth
+      REGISTRY_USER: docker
+      REGISTRY_PASS: peladonerd
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+    restart: always
+    links:
+      - registry:docker.peladonerd.com
+
+  proxy:
+    image: nginx
+    expose:
+      - "80"
+    environment:
+      VIRTUAL_HOST: docker.peladonerd.com
+      VIRTUAL_PORT: 80
+      LETSENCRYPT_HOST: docker.peladonerd.com
+      LETSENCRYPT_EMAIL: pablo@peladonerd.com
+    volumes:
+      - ./proxy.conf:/etc/nginx/conf.d/proxy.conf:ro
+    depends_on:
+      - ui
+      - registry
+      - nginx-proxy
+    links:
+      - ui
+      - registry
+    restart: always
