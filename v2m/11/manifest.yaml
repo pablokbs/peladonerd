@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: hello
+    spec:
+      containers:
+      - name: hello
+        image: gcr.io/google-samples/hello-app:1.0
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "password"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+            
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30000
+  selector:
+    role: hello
