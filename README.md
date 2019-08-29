@@ -66,6 +66,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    8. [Rsnapshot](./v2m/8) / [video](https://youtu.be/gxJqpBsPseM)
    9. [Cups](./v2m/9) / [video](https://youtu.be/_O2ik-JPq8Y)
    11. [kubectl tips](./v2m/11) / [video](https://youtu.be/caHsjOmrr2s)
+   12. [kind](./v2m/12) / [video](https://youtu.be/8Wjzpywdjyc)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
