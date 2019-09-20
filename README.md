@@ -69,7 +69,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    9. [Cups](./v2m/9) / [video](https://youtu.be/_O2ik-JPq8Y)
    11. [kubectl tips](./v2m/11) / [video](https://youtu.be/caHsjOmrr2s)
    12. [kind](./v2m/12) / [video](https://youtu.be/8Wjzpywdjyc)
-   13. [Telepresence](./v2m/13) / [video](https://youtu.be/-8voYdACyHw)
+   13. [Telepresence](./v2m/13) / [video](https://youtu.be/MipT55DJFec)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
