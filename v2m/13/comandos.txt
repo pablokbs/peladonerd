@@ -1,0 +1,13 @@
+minikube start
+kubectl get all
+kubectl run hello-world --image=datawire/hello-world --port 8000 --expose
+kubectl get all
+telepresence --docker-run --rm -it pstauffer/curl curl http://hello-world:8000/
+kubectl logs pod/hello-world-5847b8d4b6-xtrjg
+cd hello-world/
+ls
+cat server.py
+docker build -t hello-dev .
+telepresence --swap-deployment hello-world --docker-run --rm -it -v $(pwd):/usr/src/app hello-dev
+
+kubectl run curler -it --rm --image=pstauffer/curl --restart=Never -- sh
