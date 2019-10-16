@@ -1,5 +1,7 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/O4O013K68)
 
+[![slack](https://slack.peladonerd.com/badge.svg)
+
 # Pelado Nerd repo
 
 <img src="./assets/peladonerd.png" width="100"/>
