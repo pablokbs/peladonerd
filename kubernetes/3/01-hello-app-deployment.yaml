@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloweb
+  name: hello
   labels:
-    app: hello
+    role: hello
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: hello
+      role: hello
       tier: web
   template:
     metadata:
       labels:
-        app: hello
+        role: hello
         tier: web
     spec:
       containers:
