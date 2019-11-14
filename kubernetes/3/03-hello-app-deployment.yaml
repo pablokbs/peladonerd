@@ -1,13 +1,20 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
+  labels:
+    role: hello
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      role: hello
+      tier: web
   template:
     metadata:
       labels:
         role: hello
+        tier: web
     spec:
       containers:
       - name: hello
