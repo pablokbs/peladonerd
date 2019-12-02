@@ -72,6 +72,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    11. [kubectl tips](./v2m/11) / [video](https://youtu.be/caHsjOmrr2s)
    12. [kind](./v2m/12) / [video](https://youtu.be/8Wjzpywdjyc)
    13. [Telepresence](./v2m/13) / [video](https://youtu.be/MipT55DJFec)
+   14. [Diferencia entre RUN, CMD y ENTRYPOINT](./v2m/14) / [video](https://youtu.be/6ZnecM3ipu4)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
