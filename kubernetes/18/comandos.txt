@@ -1,0 +1,20 @@
+openssl x509 -req -in employee.csr -CA ~/.minikube/ca.crt -CAkey ~./minikube/ca.key -CAcreateserial -out employee.crt -days 500
+kubectl config set-credentials employee --client-certificate=employee.crt  --client-key=employee.key
+kubectl config set-context employee-context --cluster=minikube --namespace=office --user=employee
+kubeselect
+kubectl get pods
+kubectl apply -f role.yaml
+kubeselect
+kubectl apply -f role.yaml
+kubectl apply -f rolebinding.yaml
+kubeselect
+kubectl get pods
+kubectl run nginx-pod --image ubuntu
+kubectl get pods
+kubectl get nodes
+kubectl get ns
+vim role.yaml
+vim node-exporter-daemonset.yaml
+vim node-exporter-serviceAccount.yaml
+vim node-exporter-daemonset.yaml
+vim cluster-rolebinding-serviceaccount.yaml
