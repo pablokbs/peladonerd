@@ -1,0 +1,18 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tcp-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: traefik
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 4443
