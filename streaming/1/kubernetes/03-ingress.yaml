@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+spec:
+  rules:
+  - host: fredrikson.com.ar
+    http:
+      paths:
+      - backend:
+          serviceName: fredrikson-www
+          servicePort: 80

@@ -1,0 +1,15 @@
+apiVersion: mysql.presslabs.org/v1alpha1
+kind: MysqlCluster
+metadata:
+  name: my-cluster-1
+spec:
+  replicas: 1
+  secretName: my-cluster-secret-1
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-cluster-secret-1
+type: Opaque
+data:
+  ROOT_PASSWORD: cm9vdA==

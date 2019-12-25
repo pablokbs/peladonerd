@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fredrikson-www
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: fredrikson-www
+    spec:
+      containers:
+      - name: fredrikson-www
+        image: pablokbs/fredrikson-www
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 80
