@@ -75,6 +75,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    12. [kind](./v2m/12) / [video](https://youtu.be/8Wjzpywdjyc)
    13. [Telepresence](./v2m/13) / [video](https://youtu.be/MipT55DJFec)
    14. [Diferencia entre RUN, CMD y ENTRYPOINT](./v2m/14) / [video](https://youtu.be/6ZnecM3ipu4)
+   15. [MySQL Operator](./v2m/15) / [video](https://youtu.be/2i5t6bfgWvE)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
