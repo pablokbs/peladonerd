@@ -1,0 +1,7 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+runcmd:
+  - cd /root
+  - docker run --detach --hostname git.pablokbs.com --publish 80:80 --publish 2020:22 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:latest

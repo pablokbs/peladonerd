@@ -1,7 +1,7 @@
 resource "digitalocean_kubernetes_cluster" "pelado" {
   name    = "pelado"
   region  = "nyc1"
-  version = "1.15.3-do.2"
+  version = "1.16.2-do.1"
 
   node_pool {
     name       = "pelado-nodes"
