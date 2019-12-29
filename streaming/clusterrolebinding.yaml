@@ -1,0 +1,13 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: runner-gitlab-runner-deployments
+subjects:
+- kind: ServiceAccount
+  namespace: "gitlab-managed-apps"
+  name: "default"
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: "deployment-manager"
+  apiGroup: ""
