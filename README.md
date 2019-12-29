@@ -80,3 +80,6 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
    2. [Terraform 2](./terraform/2) / [video](https://youtu.be/i2LJAQVKYeY)
+
+7. Streamings
+   1. [Gitlab CI/CD](./streaming/2) / [video](https://youtu.be/RhSkUh7cGqc)
