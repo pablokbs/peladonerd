@@ -16,13 +16,13 @@ resource "digitalocean_droplet" "gitlab" {
 }
 
 # Creamos un dominio nuevo
-resource "digitalocean_domain" "pablokbs" {
-  name = "pablokbs.com"
+resource "digitalocean_domain" "mydomain" {
+  name = "example.com"
 }
 
 # Add a record to the domain
 resource "digitalocean_record" "git" {
-  domain = "${digitalocean_domain.pablokbs.name}"
+  domain = "${digitalocean_domain.mydomain.name}"
   type   = "A"
   name   = "git"
   value  = "${digitalocean_droplet.gitlab.ipv4_address}"
