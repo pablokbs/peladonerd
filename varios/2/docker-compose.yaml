@@ -23,4 +23,4 @@ services:
 
 networks:
   proxy: # new docker network to work
-external: true
+    external: true
