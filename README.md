@@ -27,6 +27,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    8. [Swarm](./docker/8) / [video](https://youtu.be/jRYRC3ZZPW8) 
    9. [Multi-Arch Builds](./docker/9) / [video](https://youtu.be/oqbHdn1oNCs) 
    10. [Docker Registry](./docker/10) / [video](https://youtu.be/stVspIUHP4Q) 
+   11. [Buildkit](./docker/11) / [video](https://youtu.be/NrpM2FX47Hg)
 
 2. Raspberry
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
@@ -77,6 +78,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    13. [Telepresence](./v2m/13) / [video](https://youtu.be/MipT55DJFec)
    14. [Diferencia entre RUN, CMD y ENTRYPOINT](./v2m/14) / [video](https://youtu.be/6ZnecM3ipu4)
    15. [MySQL Operator](./v2m/15) / [video](https://youtu.be/2i5t6bfgWvE)
+   16. [Supervisord](./v2m/16) / [video](https://youtu.be/mfXnqHRT8hI)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)

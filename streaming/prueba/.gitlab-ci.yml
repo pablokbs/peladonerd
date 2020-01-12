@@ -14,18 +14,9 @@ docker-build:
     DOCKER_HOST: tcp://localhost:2375
     DOCKER_TLS_CERTDIR: ""
 
-deploy-master:
-  stage: deploy
-  image: bitnami/kubectl
-  script:
-    - kubectl get deployment hola-php || kubectl create deployment hola-php --image="$CI_REGISTRY_IMAGE":"$CI_COMMIT_SHA"
-    - kubectl set image deployment/hola-php hola-php="$CI_REGISTRY_IMAGE":"$CI_COMMIT_SHA"
-  only:
-    - master
-
 deploy:
   stage: deploy
   image: bitnami/kubectl
   script:
-    - kubectl get deployment hola-php || kubectl -n staging create deployment hola-php --image="$CI_REGISTRY_IMAGE":"$CI_COMMIT_SHA"
+    - kubectl get deployment hola-php || kubectl create deployment hola-php --image="$CI_REGISTRY_IMAGE":"$CI_COMMIT_SHA"
     - kubectl set image deployment/hola-php hola-php="$CI_REGISTRY_IMAGE":"$CI_COMMIT_SHA"
