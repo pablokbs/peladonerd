@@ -1,13 +1,12 @@
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: deployment-manager-binding
-  namespace: office
+  name: okta
 subjects:
-- kind: User
-  name: employee
+- kind: Group
+  name: "okta:SRE"
   apiGroup: ""
 roleRef:
-  kind: Role
-  name: deployment-manager
+  kind: ClusterRole
+  name: admin
   apiGroup: ""
