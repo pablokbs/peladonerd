@@ -56,6 +56,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    17. [Prometheus 2: Grafana](./kubernetes/17) / [video](https://youtu.be/_mJPvzMStPI)
    18. [RBAC: Roles, RoleBinding, ClusterRole, ClusterRoleBinding, ServiceAccount](./kubernetes/18) / [video](https://youtu.be/VTADZjL_psI)
    19. [CRDs + Traefik V2](./kubernetes/19) / [video](https://youtu.be/UO9YrNj-Y88)
+   20. [Kustomize](./kubernetes/20) / [video](https://youtu.be/2G_CCDnxXcE)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
