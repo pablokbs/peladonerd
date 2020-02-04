@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - nginx-deployment.yaml
+  - nginx-service-nodeport.yaml
+  #- configmap.yaml
+
+commonLabels:
+  author: pelado
+
+configMapGenerator:
+- name: index-html
+  files:
+  - index.html
+
+patchesStrategicMerge:
+  - nginx-resource-patch.yaml
+
+images:
+  - name: nginx
+    newTag: 1.16-alpine
