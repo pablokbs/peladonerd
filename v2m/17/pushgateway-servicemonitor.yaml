@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: prometheus
+    prometheus: kube-prometheus
+    release: kube-prometheus
+  name: pushgateway-svc
+  namespace: monitoring
+spec:
+  endpoints:
+  - honorLabels: true
+  - port: "9091"
+  - interval: 30s
+    targetPort: "9091"
+  namespaceSelector:
+    matchNames:
+    - default
+  selector:
+    matchLabels:
+      app: pushgateway
+

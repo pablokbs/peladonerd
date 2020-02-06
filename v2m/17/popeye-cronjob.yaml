@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: popeye
+
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name:      popeye
+  namespace: popeye
+spec:
+  schedule: "* */1 * * *" # Fireoff Popeye once an hour
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: popeye
+          restartPolicy: Never
+          containers:
+            - name: popeye
+              image: quay.io/derailed/popeye:v0.3.6
+              imagePullPolicy: IfNotPresent
+              args:
+                - -o
+                - yaml
+                - --pushgateway-address
+                - pushgateway-svc.default:9091
+              resources:
+                limits:
+                  cpu:    500m
+                  memory: 100Mi

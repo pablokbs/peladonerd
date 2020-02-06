@@ -1,0 +1,22 @@
+## This is test deployment for Kubernetes platforms.
+## This is not intended to be used in production.
+##
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pushgateway
+  name: pushgateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pushgateway
+  template:
+    metadata:
+      labels:
+        app: pushgateway
+    spec:
+      containers:
+      - image: bitnami/pushgateway
+        name: pushgateway
