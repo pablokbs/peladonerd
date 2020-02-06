@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pushgateway-svc
+  labels:
+    app: pushgateway
+spec:
+  ports:
+  - name: http
+    port: 9091
+    targetPort: 9091
+  selector:
+    app: pushgateway
+
