@@ -1,9 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: php-apache
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      role: php-apache
   template:
     metadata:
       labels:
