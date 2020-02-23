@@ -82,6 +82,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    15. [MySQL Operator](./v2m/15) / [video](https://youtu.be/2i5t6bfgWvE)
    16. [Supervisord](./v2m/16) / [video](https://youtu.be/mfXnqHRT8hI)
    17. [Popeye](./v2m/17) / [video](https://youtu.be/xKGPN_47qxM)
+   18. [Init Containers](./v2m/18) / [video](https://youtu.be/a03oHbGUef4)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)

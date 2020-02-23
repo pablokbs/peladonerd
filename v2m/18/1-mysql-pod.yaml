@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mydb
+  labels:
+    app: db
+spec:
+  initContainers:
+    - name: fetch
+      image: mwendler/wget
+      command: ["wget","--no-check-certificate","https://sample-videos.com/sql/Sample-SQL-File-1000rows.sql","-O","/docker-entrypoint-initdb.d/dump.sql"]
+      volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: dump
+  containers:
+    - name: mysql
+      image: mysql
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "example"
+      volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: dump
+  volumes:
+    - emptyDir: {}
+      name: dump
