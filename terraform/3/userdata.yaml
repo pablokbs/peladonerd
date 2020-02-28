@@ -24,8 +24,9 @@ write_files:
             - 993
             - 995
           volumes:
-            - /root/mail-data:/data
+            - /mnt/mail:/data
           environment:
             - HTTPS=ON
+            - DISABLE_CLAMAV=TRUE
 runcmd:
   - docker-compose -f /root/docker-compose.yaml up -d
