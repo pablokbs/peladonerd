@@ -5,6 +5,9 @@ resource "digitalocean_volume" "mail" {
   size                    = 5
   initial_filesystem_type = "ext4"
   description             = "Email disk"
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "digitalocean_volume_attachment" "mail" {
