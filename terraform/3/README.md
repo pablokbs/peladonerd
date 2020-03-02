@@ -7,7 +7,7 @@ Se van a quedar sin el antivirus, pero si usan Linux o tienen sentido común :ma
 2.  **SPF y DMARC:** Ahora también se generan estos dos registros en su dominio:
 
     - tudominio.com. TXT "v=spf1 mx ~all"
-    - tudominio.com. TXT "v=DMARC1; p=none; rua=mailto:dmarc-reports@tudominio.com"
+    - \_dmarc.tudominio.com. TXT "v=DMARC1; p=none; rua=mailto:dmarc-reports@tudominio.com"
 
 3.  **CNAME para SMTP, POP, IMAP:** Algunos clientes por defecto van a buscar, por ejemplo, smtp.tudominio.com, por eso hice que se generen los siguientes CNAME:
 
