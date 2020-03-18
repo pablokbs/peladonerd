@@ -58,6 +58,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    19. [CRDs + Traefik V2](./kubernetes/19) / [video](https://youtu.be/UO9YrNj-Y88)
    20. [Kustomize](./kubernetes/20) / [video](https://youtu.be/2G_CCDnxXcE)
    21. [kubeadm](./kubernetes/21) / [video](https://youtu.be/K6oFYgXgzv4)
+   22. [Rancher](./kubernetes/22) / [video](https://youtu.be/74Qd1Kl79P8)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
