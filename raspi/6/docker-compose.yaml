@@ -1,0 +1,10 @@
+version: "3.2"
+
+services:
+  www:
+    image: nginx:1.17-alpine
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - /home/pi/www:/usr/share/nginx/html:ro
