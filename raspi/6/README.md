@@ -1,9 +1,9 @@
-###Descargar y flashear Raspbian:
+### Descargar y flashear Raspbian:
 
 Descargar [Rasbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/)
 
 
-###Configurar kiosk
+### Configurar kiosk
 
 #### Instalar dependencias
 
