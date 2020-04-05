@@ -1,0 +1,17 @@
+
+kubectl port-forward svc/rabbitmq-service 5672
+
+export BROKER_URL=amqp://guest:guest@127.0.0.1:5672
+amqp-declare-queue --url=$BROKER_URL -q foo -d
+amqp-publish --url=$BROKER_URL -r foo -p -b Hello
+amqp-consume --url=$BROKER_URL -q foo -c 1 cat && echo
+
+amqp-declare-queue --url=$BROKER_URL -q job1 -d
+
+for f in manzana banana ciruela higo uva limon melon frutilla; do amqp-publish --url=$BROKER_URL -r job1 -p -b $f; done
+
+
+kubectl port-forward service/redis 6379
+for f in manzana banana ciruela higo uva limon melon frutilla naranja mandarina cereza lima; do redis-cli -h 127.0.0.1 rpush job2 $f; done
+
+redis-cli -h 127.0.0.1 lrange job2 0 -1

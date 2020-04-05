@@ -60,6 +60,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    20. [Kustomize](./kubernetes/20) / [video](https://youtu.be/2G_CCDnxXcE)
    21. [kubeadm](./kubernetes/21) / [video](https://youtu.be/K6oFYgXgzv4)
    22. [Rancher](./kubernetes/22) / [video](https://youtu.be/74Qd1Kl79P8)
+   23. [Jobs y Cronjobs](./kubernetes/23) / [video](https://youtu.be/9Dl-okb4gm4)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
@@ -86,6 +87,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    17. [Popeye](./v2m/17) / [video](https://youtu.be/xKGPN_47qxM)
    18. [Init Containers](./v2m/18) / [video](https://youtu.be/a03oHbGUef4)
    19. [Netdata](./v2m/19) / [video](https://youtu.be/bGyMLNRBlQ0)
+   20. [Matrix](./v2m/20) / [video](https://youtu.be/n9dqnjeR-AI)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
