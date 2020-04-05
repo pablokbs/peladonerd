@@ -1,0 +1,16 @@
+# Instalar docker
+
+apt-get update && apt-get install docker.io docker-compose -y
+
+# Generar la config para matrix
+
+docker run -it --rm -v /root/synapse-data:/data \
+  -e SYNAPSE_SERVER_NAME=matrix.ejemplo.com \
+  -e SYNAPSE_REPORT_STATS=yes \
+  matrixdotorg/synapse:latest generate
+
+# Copiar el docker-compose
+
+# Iniciar todo
+
+docker-compose up -d
