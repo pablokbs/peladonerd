@@ -37,15 +37,8 @@ unclutter -idle 0.5 -root &
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromium/Default/Preferences
 sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
 
-/usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:8081 &
+/usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:8081
 
-while true; do
-   # Si pusiste 2 URLs para abrir en la linea de arriba, podes ir cambiando entre ellas con la siguiente linea
-   # xdotool keydown ctrl+Tab; xdotool keyup ctrl+Tab;
-   # Vamos a refrescar cada 10 min
-   xdotool keydown ctrl+r; xdotool keyup ctrl+r;
-   sleep 600
-done
 ```
 
 #### Crear servicio
@@ -109,8 +102,11 @@ Configuramos crontab para que la pantalla se apague a las 19:00 y se prenda a la
 ```
 $ crontab -e
 
-0 10 * * * DISPLAY=:0.0 xset dpms force on
-0 19 * * * DISPLAY=:0.0 xset dpms force off
+# Estas 2 lineas prenden y apagan la pantalla a las 10 y 19 horas respectivamente
+0    10     * * * DISPLAY=":0.0" xset dpms force on
+0    19     * * * DISPLAY=":0.0" xset dpms force off
+# Esta linea refresca el navegador cada 10 minutos en los horarios donde la pantalla esta prendida
+*/10 10-19  * * * DISPLAY=":0.0" xdotool keydown ctrl+r; xdotool keyup ctrl+r
 ```
 
 
