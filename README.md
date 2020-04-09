@@ -87,7 +87,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    17. [Popeye](./v2m/17) / [video](https://youtu.be/xKGPN_47qxM)
    18. [Init Containers](./v2m/18) / [video](https://youtu.be/a03oHbGUef4)
    19. [Netdata](./v2m/19) / [video](https://youtu.be/bGyMLNRBlQ0)
-   20. [Matrix](./v2m/20) / [video](https://youtu.be/MZ6djr9rPCo)
+   20. [Matrix](./v2m/20) / [video](https://youtu.be/ZiVQalt5xhk)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
