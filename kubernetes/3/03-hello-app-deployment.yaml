@@ -17,8 +17,8 @@ spec:
         tier: web
     spec:
       containers:
-      - name: hello
-        image: gcr.io/google-samples/hello-app:2.0
-        imagePullPolicy: IfNotPresent        
-        ports:
-        - containerPort: 8080
+        - name: hello
+          image: gcr.io/google-samples/hello-app:2.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080

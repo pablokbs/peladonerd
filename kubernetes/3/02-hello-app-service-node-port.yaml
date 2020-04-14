@@ -5,8 +5,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
-    targetPort: 8080
-    nodePort: 30000
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30000
   selector:
     role: hello
