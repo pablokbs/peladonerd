@@ -1,35 +1,62 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  creationTimestamp: null
+  labels:
+    app: mongo
   name: mongo
 spec:
-  serviceName: "mongo"
+  podManagementPolicy: OrderedReady
   replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mongo
+  serviceName: mongo
   template:
     metadata:
+      creationTimestamp: null
       labels:
         app: mongo
     spec:
       containers:
-      - name: mongodb
-        image: mongo:3.4.1
-        command:
-        - mongod
-        - --replSet
-        - rs0
-        ports:
-        - containerPort: 27017
-          name: web
-      # This container initializes the mongodb, then sleeps.
-      - name: init-mongo
-        image: mongo:3.4.1
-        command:
-        - bash
-        - /config/init.sh
-        volumeMounts:
-        - name: config
-          mountPath: /config
+        - command:
+            - mongod
+            - --replSet
+            - rs0
+          image: mongo:3.4.1
+          imagePullPolicy: IfNotPresent
+          name: mongodb
+          ports:
+            - containerPort: 27017
+              name: web
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        - command:
+            - bash
+            - /config/init.sh
+          image: mongo:3.4.1
+          imagePullPolicy: IfNotPresent
+          name: init-mongo
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /config
+              name: config
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
       volumes:
-      - name: config
-        configMap:
-          name: "mongo-init"
+        - configMap:
+            defaultMode: 420
+            name: mongo-init
+          name: config
+  updateStrategy:
+    type: OnDelete
+status:
+  replicas: 0
