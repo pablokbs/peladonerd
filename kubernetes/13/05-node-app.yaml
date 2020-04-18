@@ -1,20 +1,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
+  labels:
+    app: node-mongo
   name: node-mongo
 spec:
+  progressDeadlineSeconds: 600
   replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: node-mongo
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
+      creationTimestamp: null
       labels:
+        app: node-mongo
         role: node-mongo
     spec:
       containers:
-      - name: node-mongo
-        image: husseingalal/letschat2
-        imagePullPolicy: IfNotPresent        
-        ports:
-        - containerPort: 8080
-        env:
-        - name: LCB_DATABASE_URI
-          value: "mongodb://mongo-0.mongo:27017,mongo-1.mongo:27017,mongo-2.mongo:27017/member-management"
+        - env:
+            - name: LCB_DATABASE_URI
+              value: mongodb://mongo-0.mongo:27017,mongo-1.mongo:27017,mongo-2.mongo:27017/member-management
+          image: husseingalal/letschat2
+          imagePullPolicy: IfNotPresent
+          name: node-mongo
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
