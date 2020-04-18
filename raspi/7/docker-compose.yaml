@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: budry/jwilder-nginx-proxy-arm
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: duch/letsencrypt-nginx-proxy-companion:stable
+    restart: always
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  nginx_fredrikson:
+    image: nginx
+    restart: always
+    expose:
+      - "80"
+    volumes:
+      - /home/pi/www:/usr/share/nginx/html:ro
+    environment:
+      - VIRTUAL_HOST=subdominio.ejemplo.com
+      - LETSENCRYPT_HOST=subdominio.ejemplo.com
+      - LETSENCRYPT_EMAIL=tumail@ejemplo.com
+
+volumes:
+  certs:
+  html:
+  vhostd:
+  confd:
