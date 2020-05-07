@@ -1,0 +1,8 @@
+# Este es el metodo recomendado:
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+Pero necesita unos cambios para que funcione bien con respecto a los permisos, por lo que modifiqué ese archivo
+y lo puse en este directorio para que puedan probar
+
+kubectl apply -f dashboard.yaml
