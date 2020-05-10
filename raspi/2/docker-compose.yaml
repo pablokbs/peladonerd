@@ -3,16 +3,17 @@ version: "2"
 services:
 
   samba:
-    image: dperson/samba:rpi
+    image: dperson/samba
+    environment:
+      - TZ=America/Argentina/Mendoza
     restart: always
-    command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    command: '-u "pi;password" -s "media;/media;yes;no;no" -s "downloads;/downloads;yes;no;no" -S'
     stdin_open: true
     tty: true
     ports:
       - 139:139
       - 445:445
     volumes:
-      - /usr/share/zoneinfo/America/Argentina/Mendoza:/etc/localtime
       - /home/pi/media:/media
       - /home/pi/downloads:/downloads
 
