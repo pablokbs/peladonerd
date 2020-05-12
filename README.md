@@ -68,6 +68,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    2. [Traefik](./varios/2) / [video](https://youtu.be/6qkhvhv0_IU)
    3. [Poste](./terraform/3) / [video](https://youtu.be/K4-uD1VHCz0)
    4. [Gitlab CI/CD](./streaming/2) / [video](https://youtu.be/c5T0UkuD-6g)
+   5. [Dia del SRE 3: Scrum](./varios/3) / [video](https://youtu.be/ehuKjT9xl0k)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
