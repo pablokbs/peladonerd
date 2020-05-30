@@ -92,6 +92,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    19. [Netdata](./v2m/19) / [video](https://youtu.be/bGyMLNRBlQ0)
    20. [Matrix](./v2m/20) / [video](https://youtu.be/ZiVQalt5xhk)
    21. [Kubernetes Dashboard](./v2m/21) / [video](https://youtu.be/B5r-_HHX31s)
+   22. [WireGuard](./v2m/22) / [video](https://youtu.be/G_Pv9XEzfUY)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
