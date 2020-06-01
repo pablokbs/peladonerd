@@ -1,0 +1,2 @@
+defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
+sudo tmutil setdestination afp://user:pass@192.168.0.9/Time\ Machine
