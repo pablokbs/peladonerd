@@ -1,0 +1,28 @@
+# Comandos para correr en ubuntu
+# Instalar NFS
+
+sudo apt-get install nfs-common
+
+# Montar share NFS
+
+sudo mount -t nfs 192.168.0.9: /mnt/nfs
+
+# Bajar cronopete
+
+wget https://www.rastersoft.com/descargas/cronopete/cronopete-bionic_4.12.0-ubuntu1_amd64.deb
+
+# Instalar cronopete
+
+sudo dpkg -i cronopete*
+
+# Instalar dependencias que faltaron
+
+sudo apt-get -f install -y
+
+# Instalar dconf-editor
+
+sudo apt-get install dconf-editor
+
+# Correr dconf editor 
+
+dconf-editor # activar /org/rastersoft/cronopete/enable-folder-backend

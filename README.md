@@ -94,6 +94,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    21. [Kubernetes Dashboard](./v2m/21) / [video](https://youtu.be/B5r-_HHX31s)
    22. [Netatalk / TimeMachine opensource](./v2m/22) / [video](https://youtu.be/LhlTG8LJ89Q)
    23. [WireGuard](./v2m/23) / [video](https://youtu.be/G_Pv9XEzfUY)
+   24. [Cronopete](./v2m/24) / [video](https://youtu.be/DywhgMht2jQ)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
