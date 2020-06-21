@@ -12,7 +12,7 @@ Este es un instructivo para un tutorial en Youtube https://youtu.be/pliGG1M87W8
 ### 3. Instalar paquetes necesarios
 
 ```
- sudo apt-get install -y \
+sudo apt-get update && sudo apt-get install -y \
      apt-transport-https \
      ca-certificates \
      curl \
