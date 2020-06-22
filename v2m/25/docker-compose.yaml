@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  vsftpd:
+#    image: panubo/vsftpd # esta imagen sirve para amd64
+    image: pablokbs/panubo-vsftpd-arm # esta imagen es para ARM (raspberry)
+    environment:
+      - FTP_USER=plex
+      - FTP_PASSWORD=koda
+    volumes:
+      - /mnt/storage/media:/srv
+    expose:
+      - 21
+    network_mode: host
