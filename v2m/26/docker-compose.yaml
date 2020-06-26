@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  plex:
+    image: jaymoulin/plex:1.18.2
+    expose:
+      - 32400
+      - 33400
+    network_mode: "host"
+    volumes:
+      - /mnt/gdrive/movies:/movies
+    depends_on:
+      - rclone-mount
+
+  rclone-mount:
+    image: pablokbs/rclone-mount:armhf
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - 'apparmor:unconfined'
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - '/home/pi/.config/rclone:/config'
+      - '/mnt/gdrive:/mnt/mediaefs:shared'
+    logging:
+      options:
+        max-size: 1g
+    container_name: rclone-mount
+    devices:
+      - /dev/fuse
+    environment:
+      - 'RemotePath=gdrive:'
+      - 'MountCommands=--allow-other --allow-non-empty --buffer-size 256M'
+      - 'ConfigName=rclone.conf'
