@@ -1,0 +1,11 @@
+# Genera config
+
+docker run -it -v ~/.config/rclone:/config/rclone  rclone/rclone:beta config
+
+# Cambia permisos
+
+sudo chmod 0644 .config/rclone/rclone.conf
+
+# Levanta docker-compose
+
+docker-compose up -d
