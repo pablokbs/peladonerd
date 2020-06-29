@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  samba:
+    image: dperson/samba:rpi
+    restart: always
+    command: '-u "backup;root" -s "media;/media;yes;no"'
+    stdin_open: true
+    tty: true
+    ports:
+      - '139:130'
+      - '445:445'
+    volumes:
+      - '/usr/share/zoneinfo/America/El_Salvador:/etc/localtime'
+      - '/mnt/gdrive:/media'
+    depends_on:
+      - rclone-mount
+ 
+  rclone-mount:
+    image: pablokbs/rclone-mount:armhf
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - 'apparmor:unconfined'
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - '/root/.config/rclone:/config'
+      - '/mnt/gdrive:/mnt/mediaefs:shared'
+    logging:
+      options:
+        max-size: 1g
+    container_name: rclone-mount
+    devices:
+      - /dev/fuse
+    environment:
+      - 'RemotePath=gdrive:'
+      - 'MountCommands=--allow-other --allow-non-empty --buffer-size 256M'
+      - 'ConfigName=rclone.conf'
