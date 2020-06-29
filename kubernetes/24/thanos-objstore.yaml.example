@@ -1,0 +1,7 @@
+type: S3
+config:
+  bucket: "MY_BUCKET"
+  endpoint: "s3.amazonaws.com"
+  region: "us-east-1"
+  access_key: "MY_KEY"
+  secret_key: "MY_SECRET"
