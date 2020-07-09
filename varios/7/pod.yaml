@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo
+spec:
+  containers:
+  - name: demo
+    image: gcr.io/google-samples/node-hello:1.0
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+      protocol: TCP
