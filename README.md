@@ -73,6 +73,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    6. [OpenVPN](./varios/6) / [video](https://youtu.be/Ulew2JHUHfE)
    7. [Podman](./varios/7) / [video](https://youtu.be/l6Bgd7Y8pgE)
    8. [GitHub Actions](https://github.com/pablokbs/prueba-gha) / [video](https://youtu.be/MNBf-ylhtK0)
+   9. [Transmission Bot para Telegram](./varios/9) / [video](https://youtu.be/FQMVFyJnQsY)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)

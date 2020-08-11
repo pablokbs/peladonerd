@@ -1,0 +1,32 @@
+version: '3.7'
+
+services: 
+
+  transmission:
+    image : jaymoulin/transmission
+    command: transmission-daemon -f -g /config
+    restart: unless-stopped
+    volumes:
+      - /mnt/torrents:/downloads
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    expose:
+      - 9091
+    environment:
+      - WEB_PASSWD=admin
+      - TRANSMISSION_USER=admin
+      - TRANSMISSION_PASSWORD=admin
+
+  telegrambot:
+    image: pablokbs/pelade-transmission-bot
+    restart: unless-stopped
+    command: python /code/transmission_bot/telegram_bot.py
+    environment:
+      - ADDRESS=transmission
+      - PORT=9091
+      - TS_USER=admin
+      - PASSWORD=admin
+      - TOKEN=xxxxxxxxxx
+      - PERSISTENCE_FILE=/var/lib/transmission-telegram/authorized_chats
