@@ -101,6 +101,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    24. [Cronopete](./v2m/24) / [video](https://youtu.be/DywhgMht2jQ)
    25. [Vsftpd](./v2m/25) / [video](https://youtu.be/y9sPUF7vRC0)
    26. [Rclone](./v2m/26) / [video](https://youtu.be/mnDYJ2ZpdxU)
+   27. [Portainer](./v2m/27) / [video](https://youtu.be/TSot5AnS-mk)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
