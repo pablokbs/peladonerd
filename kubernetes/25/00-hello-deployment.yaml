@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello
+  name: hello
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - image: quay.io/brancz/prometheus-example-app:v0.3.0
+        name: hello
+        ports:
+        - name: http
+          protocol: TCP
+          containerPort: 8080
+        resources:
+          requests:
+            cpu: "10m"
+          limits:
+            cpu: "20m"
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-svc
+  labels:
+    app: hello
+spec:
+  selector:
+    app: hello
+  ports:
+  - name: web
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: hello
+  name: hello-app
+spec:
+  endpoints:
+  - interval: 10s
+    port: web
+  selector:
+    matchLabels:
+      app: hello

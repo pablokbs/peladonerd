@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust
+  labels:
+    app: locust
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      containers:
+        - name: locust
+          image: locustio/locust:0.14.5
+          ports:
+            - containerPort: 8089
+          env:
+            - name: LOCUSTFILE_PATH
+              value: /locust/locustfile.py
+            - name: TARGET_URL
+              value: http://hello-svc:80
+          volumeMounts:
+            - name: locustfile-volume
+              mountPath: /locust
+      volumes:
+        - name: locustfile-volume
+          configMap:
+            name: locustfile
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locust-svc
+  labels:
+    app: locust
+spec:
+  selector:
+    app: locust
+  ports:
+  - name: web
+    protocol: TCP
+    port: 80
+    targetPort: 8089
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile
+data:
+  locustfile.py: |-
+    from locust import HttpLocust, TaskSet, task, between
+
+    class UserBehavior(TaskSet):
+
+        @task
+        def get_something(self):
+            self.client.get("/")
+
+    class WebsiteUser(HttpLocust):
+        task_set = UserBehavior
+        wait_time = between(5, 9)

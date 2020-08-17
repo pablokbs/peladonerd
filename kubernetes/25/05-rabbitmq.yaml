@@ -1,0 +1,111 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    component: rabbitmq
+  name: rabbitmq-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: taskQueue
+        component: rabbitmq
+    spec:
+      containers:
+      - image: rabbitmq:3-alpine
+        name: rabbitmq
+        ports:
+        - containerPort: 5672
+          name: amqp
+          protocol: TCP
+        - containerPort: 15672
+          name: management
+          protocol: TCP
+        - containerPort: 15692
+          name: prometheus
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /etc/rabbitmq
+          name: rabbitmq-config-rw
+        - mountPath: /var/lib/rabbitmq/mnesia
+          name: rabbitmq-data
+      initContainers:
+      - command:
+        - sh
+        - -c
+        - cp /tmp/rabbitmq/rabbitmq.conf /etc/rabbitmq/rabbitmq.conf && echo '' >>
+          /etc/rabbitmq/rabbitmq.conf; cp /tmp/rabbitmq/enabled_plugins /etc/rabbitmq/enabled_plugins
+        image: busybox:1.32.0
+        imagePullPolicy: IfNotPresent
+        name: rabbitmq-config
+        volumeMounts:
+        - mountPath: /tmp/rabbitmq
+          name: rabbitmq-config
+        - mountPath: /etc/rabbitmq
+          name: rabbitmq-config-rw
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: rabbitmq.conf
+            path: rabbitmq.conf
+          - key: enabled_plugins
+            path: enabled_plugins
+          name: rabbitmq-config
+        name: rabbitmq-config
+      - emptyDir: {}
+        name: rabbitmq-config-rw
+      - emptyDir: {}
+        name: rabbitmq-data
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: rabbitmq
+  name: rabbitmq-service
+spec:
+  ports:
+  - name: http
+    port: 15672
+    protocol: TCP
+    targetPort: 15672
+  - name: web
+    port: 15692
+    protocol: TCP
+    targetPort: 15692
+  - name: amqp
+    port: 5672
+    protocol: TCP
+    targetPort: 5672
+  selector:
+    app: taskQueue
+    component: rabbitmq
+
+--- 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+data:
+  enabled_plugins: |
+    [rabbitmq_management,rabbitmq_peer_discovery_k8s,rabbitmq_prometheus].
+  rabbitmq.conf: |
+    loopback_users.guest = false
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    component: rabbitmq
+  name: rabbitmq
+spec:
+  endpoints:
+  - interval: 10s
+    port: web
+  selector:
+    matchLabels:
+      component: rabbitmq
