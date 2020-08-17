@@ -1,0 +1,106 @@
+apiVersion: v1
+data:
+  config.yaml: |-
+    "resourceRules":
+      "cpu":
+        "containerLabel": "container"
+        "containerQuery": "sum(irate(container_cpu_usage_seconds_total{<<.LabelMatchers>>,container!=\"POD\",container!=\"\",pod!=\"\"}[5m])) by (<<.GroupBy>>)"
+        "nodeQuery": "sum(1 - irate(node_cpu_seconds_total{mode=\"idle\"}[5m]) * on(namespace, pod) group_left(node) node_namespace_pod:kube_pod_info:{<<.LabelMatchers>>}) by (<<.GroupBy>>)"
+        "resources":
+          "overrides":
+            "namespace":
+              "resource": "namespace"
+            "node":
+              "resource": "node"
+            "pod":
+              "resource": "pod"
+      "memory":
+        "containerLabel": "container"
+        "containerQuery": "sum(container_memory_working_set_bytes{<<.LabelMatchers>>,container!=\"POD\",container!=\"\",pod!=\"\"}) by (<<.GroupBy>>)"
+        "nodeQuery": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\",<<.LabelMatchers>>} - node_memory_MemAvailable_bytes{job=\"node-exporter\",<<.LabelMatchers>>}) by (<<.GroupBy>>)"
+        "resources":
+          "overrides":
+            "instance":
+              "resource": "node"
+            "namespace":
+              "resource": "namespace"
+            "pod":
+              "resource": "pod"
+      "window": "5m"
+    "rules":
+    - "metricsQuery": "sum(rate(<<.Series>>{<<.LabelMatchers>>,container!=\"POD\"}[1m])) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": "^container_(.*)_seconds_total$"
+      "resources":
+        "overrides":
+          "namespace":
+            "resource": "namespace"
+          "pod":
+            "resource": "pod"
+      "seriesFilters": []
+      "seriesQuery": "{__name__=~\"^container_.*\",container!=\"POD\",namespace!=\"\",pod!=\"\"}"
+    - "metricsQuery": "sum(rate(<<.Series>>{<<.LabelMatchers>>,container!=\"POD\"}[1m])) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": "^container_(.*)_total$"
+      "resources":
+        "overrides":
+          "namespace":
+            "resource": "namespace"
+          "pod":
+            "resource": "pod"
+      "seriesFilters":
+      - "isNot": "^container_.*_seconds_total$"
+      "seriesQuery": "{__name__=~\"^container_.*\",container!=\"POD\",namespace!=\"\",pod!=\"\"}"
+    - "metricsQuery": "sum(<<.Series>>{<<.LabelMatchers>>,container!=\"POD\"}) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": "^container_(.*)$"
+      "resources":
+        "overrides":
+          "namespace":
+            "resource": "namespace"
+          "pod":
+            "resource": "pod"
+      "seriesFilters":
+      - "isNot": "^container_.*_total$"
+      "seriesQuery": "{__name__=~\"^container_.*\",container!=\"POD\",namespace!=\"\",pod!=\"\"}"
+    - "metricsQuery": "sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": ""
+      "resources":
+        "template": "<<.Resource>>"
+      "seriesFilters":
+      - "isNot": ".*_total$"
+      "seriesQuery": "{namespace!=\"\",__name__!~\"^container_.*\"}"
+    - "metricsQuery": "sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": "^(.*)_total$"
+      "resources":
+        "template": "<<.Resource>>"
+      "seriesFilters":
+      - "isNot": ".*_seconds_total"
+      "seriesQuery": "{namespace!=\"\",__name__!~\"^container_.*\"}"
+    - "metricsQuery": "sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)"
+      "name":
+        "as": ""
+        "matches": "^(.*)_seconds_total$"
+      "resources":
+        "template": "<<.Resource>>"
+      "seriesFilters": []
+      "seriesQuery": "{namespace!=\"\",__name__!~\"^container_.*\"}"
+    "externalRules":
+    - "metricsQuery": "sum(rate(http_requests_total{service=\"hello-svc\"}[1m]))"
+      "name":
+        "as": "http_requests_in_flight_hello"
+        "matches": ""
+      "resources":
+        "template": "<<.Resource>>"
+      "seriesQuery": "{__name__=~\"^http_requests_total\"}"
+kind: ConfigMap
+metadata:
+  name: adapter-config
+  namespace: monitoring

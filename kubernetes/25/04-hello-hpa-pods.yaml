@@ -1,0 +1,20 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hello-autoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hello
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  # Las metricas "Pods" toman el promedio de la metrica 
+  # entre todos los pods controlados por el deployment del hpa
+  - type: Pods
+    pods:
+      # Este ejemplo no funciona porque esta metrica no existe en nuestro deployment
+      # No tuve tiempo de encontrar una imagen que tenga una metrica como esta
+      metricName: promhttp_metric_handler_requests_in_flight
+      targetAverageValue: 10

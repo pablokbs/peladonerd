@@ -1,0 +1,15 @@
+
+kubectl port-forward svc/rabbitmq-service 5672
+
+export BROKER_URL=amqp://guest:guest@127.0.0.1:5672
+
+amqp-declare-queue --url=$BROKER_URL -q job1 -d
+
+for f in manzana banana ciruela higo uva limon melon frutilla; do amqp-publish --url=$BROKER_URL -r job1 -p -b $f; done
+
+amqp-consume --url=$BROKER_URL -q job1 -c 1 cat && echo
+
+
+kubectl get --raw /apis/external.metrics.k8s.io/v1beta1 | jq 
+
+kubectl get --raw /apis/external.metrics.k8s.io/v1beta1/namespaces/default/http_requests_in_flight_hello | jq
