@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  merch:
+    image: mbarthelemy/nginx-geoip
+    restart: unless-stopped
+    volumes:
+      - ./merch/default.conf:/etc/nginx/conf.d/default.conf
+      - ./merch/nginx.conf:/etc/nginx/nginx.conf
