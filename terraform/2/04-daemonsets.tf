@@ -2,21 +2,21 @@ resource "kubernetes_daemonset" "fluentd" {
   metadata {
     name = "fluentd"
     namespace = "kube-system"
-    labels {
+    labels = {
       test = "fluentd"
     }
   }
 
   spec {
     selector {
-      match_labels {
+      match_labels = {
         test = "fluentd"
       }
     }
 
     template {
       metadata {
-        labels {
+        labels = {
           test = "fluentd"
         }
       }
