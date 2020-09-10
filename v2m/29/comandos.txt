@@ -1,0 +1,25 @@
+Crear maquinas:
+
+```
+docker-machine create manager1
+docker-machine create worker1
+```
+
+Iniciar swarm:
+
+```
+$ docker swarm init --advertise-addr <IP>
+$ docker swarm join --token <token> <IP>:2377
+```
+
+
+Servicios:
+
+```
+docker service create --replicas 1 --name helloworld alpine ping docker.com
+docker service create --replicas 2 --name my-web --publish published=8080,target=80 nginx
+```
+
+Docker Swarmpit
+
+`docker stack deploy -c docker-compose.yml swarmpit`
