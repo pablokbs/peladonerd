@@ -105,6 +105,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    27. [Portainer](./v2m/27) / [video](https://youtu.be/TSot5AnS-mk)
    28. [GeoIP](./v2m/28) / [video](https://youtu.be/ZpEfjsJamcU)
    29. [Swarmpit](./v2m/29) / [video](https://youtu.be/f2gmhiYBW8Y)
+   30. [Kompose](./v2m/30) / [video](https://youtu.be/JHdnasrZKyU)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
