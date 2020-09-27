@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - hello.peladonerd.com
+    secretName: hello-tls
+  rules:
+  - host: hello.peladonerd.com
+    http:
+      paths:
+      - backend:
+          serviceName: hello-v1-svc
+          servicePort: 80
