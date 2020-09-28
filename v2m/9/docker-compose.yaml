@@ -3,15 +3,15 @@ version: "2"
 services:
 
   cups:
-    image: a0js/rpi-cups
+    image: ydkn/cups
     ports:
       - 631:631
     volumes:
       - /var/run/dbus:/var/run/dbus
       - /dev/bus/usb:/dev/bus/usb
-      - ./printers.conf:/etc/cups/printers.conf
+      - ./cups:/etc/cup
     environment:
-      - CUPS_USER_ADMIN=admin
-      - CUPS_USER_PASSWORD=admin
+      # El user y password por defecto son admin / admin
+      - ADMIN_PASSWORD=admin
     restart: always
     privileged: true
