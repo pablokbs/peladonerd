@@ -4,6 +4,9 @@ metadata:
   name: hello
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      role: hello
   template:
     metadata:
       labels:
