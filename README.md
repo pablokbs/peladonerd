@@ -107,6 +107,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    29. [Swarmpit](./v2m/29) / [video](https://youtu.be/f2gmhiYBW8Y)
    30. [Kompose](./v2m/30) / [video](https://youtu.be/JHdnasrZKyU)
    31. [Cert-manager en Kubernetes](./v2m/31) / [video](https://youtu.be/ZKrC261Rxqo)
+   32. [Nginx-Proxy-Manager](./v2m/32) / [video](https://youtu.be/0n9DLj2ndo4)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
