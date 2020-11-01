@@ -4,9 +4,9 @@ Si se puede, con un LoadBalancer en un [servicio HTTP de træfik](https://doc.tr
 
 Esto permite utilizar træfik no sólo para enviar tráfico a containers si no también a aplicaciones corriendo en servidores on-premise (_siempre que el docker-host pueda llegar hasta ellos en la red_).
 
-El primer requisito es que la configuración estática de træfik (**traefik.tom**) declare un [**file** provider](https://doc.traefik.io/traefik/providers/file/), para lo cual es más cómodo utilizar un directorio donde todos los ficheros `.toml` o `.yml` sean leídos automágicamente:
+El primer requisito es que la configuración estática de træfik (**traefik.toml**) declare un [**file** provider](https://doc.traefik.io/traefik/providers/file/), para lo cual es más cómodo utilizar un directorio donde todos los ficheros `.toml` o `.yml` sean leídos automágicamente:
 
-Sección a incluír en la configuración estática:
+Sección a incluír en la configuración estática (**traefik.toml**):
 
 ```yaml
 ...
@@ -41,4 +41,3 @@ La configuración del servicio sería así:
 
 La documentación de referencia del ejemplo anterior la encuentran en la sección "_**Load-balancing**_" de:
 * [https://doc.traefik.io/traefik/routing/services/](https://doc.traefik.io/traefik/routing/services/)
-
