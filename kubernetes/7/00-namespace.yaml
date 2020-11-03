@@ -1,4 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: monitoring
+  name: "Cluster-Monitoring"
