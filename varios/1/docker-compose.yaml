@@ -37,6 +37,9 @@ services:
       - VIRTUAL_HOST=pablokbs.com,www.pablokbs.com
       - LETSENCRYPT_HOST=pablokbs.com,www.pablokbs.com
       - LETSENCRYPT_EMAIL=pablo@pablokbs.com
+    depends_on:
+      - nginx-proxy
+      - letsencrypt
 volumes: 
   certs:
   html:
