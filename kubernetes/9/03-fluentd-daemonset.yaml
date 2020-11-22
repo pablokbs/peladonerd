@@ -8,6 +8,9 @@ metadata:
     kubernetes.io/cluster-service: "true"
     version: v1.20
 spec:
+  selector:
+    matchLabels:
+      k8s-app: fluentd-es
   template:
     metadata:
       labels:
