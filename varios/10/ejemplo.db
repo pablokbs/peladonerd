@@ -1,0 +1,11 @@
+ejemplo.com.        IN  SOA ns1.ejemplo.com. peladonerd.ejemplo.com. 2015082542 7200 3600 1209600 3600
+server1.ejemplo.com.    IN  A   192.168.1.1
+server2.ejemplo.com.    IN  A   192.168.1.2
+server3.ejemplo.com.    IN  A   192.168.1.3
+server4.ejemplo.com.    IN  A   192.168.1.3
+www.ejemplo.com.        IN  CNAME   server1
+
+_minecraft._tcp.ejemplo.com.   86400 IN    SRV 10       60     25565 server1.ejemplo.com.
+_minecraft._tcp.ejemplo.com.   86400 IN    SRV 10       20     25565 server2.ejemplo.com.
+_minecraft._tcp.ejemplo.com.   86400 IN    SRV 10       20     25565 server3.ejemplo.com.
+_minecraft._tcp.ejemplo.com.   86400 IN    SRV 20       0      25565 server4.ejemplo.com.
