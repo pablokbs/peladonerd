@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-test-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: go-test-app
+  template:
+    metadata:
+      labels:
+        app: go-test-app
+    spec:
+      containers:
+      - name: go-test-app
+        image: pablokbs/go-test-app
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
