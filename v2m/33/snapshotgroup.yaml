@@ -1,0 +1,27 @@
+apiVersion: gemini.fairwinds.com/v1beta1
+kind: SnapshotGroup
+metadata:
+  name: hackmd
+  namespace: notepad
+spec:
+  persistentVolumeClaim:
+    claimName: hackmd
+  schedule:
+    - every: "10 minutes"
+      keep: 3
+    - every: hour
+      keep: 1
+---
+apiVersion: gemini.fairwinds.com/v1beta1
+kind: SnapshotGroup
+metadata:
+  name: hackmd-postgresql
+  namespace: notepad
+spec:
+  persistentVolumeClaim:
+    claimName: data-hackmd-postgresql-0
+  schedule:
+    - every: "10 minutes"
+      keep: 3
+    - every: hour
+      keep: 1

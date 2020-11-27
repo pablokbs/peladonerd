@@ -1,0 +1,22 @@
+kubectl apply -f deployment.yaml
+
+kubectl create secret docker-registry image-pull-secret \
+  --docker-username=xxxxxx\
+  --docker-password='xxxxxx' \
+  --docker-email=xxxxxx
+
+kubectl create ns prueba
+
+kubectl -n prueba apply -f deployment
+
+kubectl apply -f imagepullsecret-patcher.yaml
+
+kubectl -n imagepullsecret-patcher \
+  create secret docker-registry image-pull-secret \
+  --docker-username=xxxxxx\
+  --docker-password='xxxxxx' \
+  --docker-email=xxxxxx
+
+kubectl create ns prueba2
+
+kubectl -n prueba2 apply -f deployment.yaml
