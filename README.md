@@ -64,6 +64,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    23. [Jobs y Cronjobs](./kubernetes/23) / [video](https://youtu.be/9Dl-okb4gm4)
    24. [Thanos](./kubernetes/24) / [video](https://youtu.be/NfP_8lsHXkU)
    25. [HPA 2: Custom metrics](./kubernetes/25) / [video](https://youtu.be/whWFJNzBPu0)
+   26. [ArgoCD](./kubernetes/26) / [video](https://youtu.be/e6Wmu77HoV8)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
