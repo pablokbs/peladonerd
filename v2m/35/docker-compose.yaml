@@ -1,0 +1,73 @@
+version: '3.7'
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:0.6.0
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.12
+    restart: always
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  wordpress:
+    image: wordpress:php7.1-apache
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: wordpress
+      VIRTUAL_HOST: www.ejemplo.com
+      LETSENCRYPT_HOST: www.ejemplo.com
+      LETSENCRYPT_EMAIL: pablo@example.com
+    links:
+      - mysql:mysql
+
+  mysql:
+    image: mysql:8.0.13
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ~/docker/mysql-data:/var/lib/mysql
+
+  minio:
+    image: minio/minio
+    command: server /data
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: AKIAIOSFODNN7EXAMPLE
+      MINIO_SECRET_KEY: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      MINIO_DOMAIN: s3.ejemplo.com
+      VIRTUAL_HOST: s3.ejemplo.com
+      LETSENCRYPT_HOST: s3.ejemplo.com
+      LETSENCRYPT_EMAIL: pablo@ejemplo.com
+    volumes:
+      - ~/docker/minio-data:/data
+
+volumes:
+  certs:
+  confd:
+  vhostd:
+  html:

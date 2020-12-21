@@ -112,6 +112,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    32. [Nginx-Proxy-Manager](./v2m/32) / [video](https://youtu.be/0n9DLj2ndo4)
    33. [Gemini](./v2m/33) / [video](https://youtu.be/nSdzAcCXLxE)
    34. [ImagePullSecret-Patcher](./v2m/34) / [video](https://youtu.be/e_cBicVb0E0)
+   35. [MinIO](./v2m/35) / [video](https://youtu.be/_QHUR2VFmfo)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
