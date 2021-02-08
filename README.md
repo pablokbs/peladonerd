@@ -67,6 +67,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    26. [ArgoCD](./kubernetes/26) / [video](https://youtu.be/e6Wmu77HoV8)
    27. [Pod Priorities](./kubernetes/27) / [video](https://youtu.be/s9Z-YluUOuw)
    28. [Pod Disruption Budgets](./kubernetes/28) / [video](https://youtu.be/2tv1nhJuuJU)
+   29. [k0s](./kubernetes/29) / [video](https://youtu.be/netJ0Nuj_tw)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
