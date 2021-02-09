@@ -7,4 +7,5 @@ chmod +x /usr/local/bin/k0s
 k0s install --role worker
 sed -i 's/REPLACEME/\/root\/worker\.token/g' /etc/systemd/system/k0s.service
 systemctl daemon-reload
+systemctl enable k0s
 systemctl start k0s
