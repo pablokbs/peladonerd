@@ -1,0 +1,18 @@
+istioctl install --set profile=demo -y
+kubectl label namespace default istio-injection=enabled
+
+kubectl apply -f 01-hello-app-v1.yaml
+kubectl apply -f 02-hello-app-v2.yaml
+
+describe pod 
+
+while sleep 1; do curl -o /dev/null -s -w %{http_code} http://hello-v2-svc:80/; done
+
+while sleep 1; do curl -o /dev/null -s -w %{http_code} http://hello-v1-svc:80/; done
+
+
+kubectl apply -f 03*
+curl -H "Host: hello.pelado.local" 192.168.99.103:31631/v2
+
+kubectl apply -f 04*
+while sleep 1; do curl localhost:8080/v1 && curl localhost:8080/v2; done
