@@ -1,0 +1,41 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: hello-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - hello.pelado.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: hello
+spec:
+  hosts:
+  - hello.pelado.local
+  gateways:
+  - hello-gateway.default.cluster.local
+  http:
+  - match:
+    - uri:
+        prefix: /v1
+    route:
+    - destination:
+        host: hello-v1-svc
+        port:
+          number: 80
+  - match:
+    - uri:
+        prefix: /v2
+    route:
+    - destination:
+        host: hello-v2-svc
+        port:
+          number: 80

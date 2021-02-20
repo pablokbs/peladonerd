@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: config
+            mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: config
+          configMap:
+            name: nginx-config
+            items:
+              - key: proxy.conf
+                path: proxy.conf
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  proxy.conf: |-
+    server {
+      listen 80;
+
+      location /v1 {
+        proxy_pass http://hello-v1-svc;
+        # https://github.com/envoyproxy/envoy/issues/170
+        proxy_http_version 1.1;
+      }
+      location /v2 {
+        proxy_pass http://hello-v2-svc;
+        # https://github.com/envoyproxy/envoy/issues/170
+        proxy_http_version 1.1;
+      }
+    }
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
