@@ -82,6 +82,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    9. [Transmission Bot para Telegram](./varios/9) / [video](https://youtu.be/FQMVFyJnQsY)
    10. [CoreDNS](./varios/10) / [video](https://youtu.be/tE9YjEV1T4E)
    11. [RCA](./varios/11) / [video](https://youtu.be/ErbOF56SAWE)
+   12. [WireGuard + PiHole](./varios/12) / [video](https://youtu.be/R29YBmYxXAk)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
@@ -118,7 +119,6 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    33. [Gemini](./v2m/33) / [video](https://youtu.be/nSdzAcCXLxE)
    34. [ImagePullSecret-Patcher](./v2m/34) / [video](https://youtu.be/e_cBicVb0E0)
    35. [MinIO](./v2m/35) / [video](https://youtu.be/_QHUR2VFmfo)
-   36. [WireGuard + PiHole](./v2m/36) / [video](https://youtu.be/R29YBmYxXAk)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
