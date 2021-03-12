@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-helm
+  namespace: argocd
+spec:
+  source:
+    helm:
+      valueFiles:
+        - values-cluster1.yaml

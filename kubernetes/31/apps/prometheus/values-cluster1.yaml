@@ -1,0 +1,48 @@
+kube-prometheus-stack:
+  namespaceOverride: monitoring
+  global:
+    imagePullSecrets:
+    - name: "docker-registry"
+  grafana:
+    enabled: false
+  prometheus:
+    enabled: true
+    serviceAccount:
+      create: true
+      name: cluster1-prometheus
+      annotations:
+        eks.amazonaws.com/role-arn: "arn:aws:iam::xxxxxxxxxxxx:role/cluster1-prometheus"
+    thanosService:
+      enabled: true
+      portName: grpc
+      port: 10901
+      targetPort: "grpc"
+    prometheusSpec:
+      externalLabels:
+        environment: prod
+        cluster: cluster1
+      replicas: 2
+      shards: 1
+      retention: 30d
+      podMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: gp2
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 100Gi
+      thanos:
+        image: thanosio/thanos:v0.17.2
+        objectStorageConfig:
+          key: thanos-objstore.yaml
+          name: thanos-objstore-config
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2Gi
+          requests:
+            cpu: 300m
+            memory: 512Mi

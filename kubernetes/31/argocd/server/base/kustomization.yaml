@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- argocd-server-cluster-role.yaml
+- argocd-server-cluster-rolebinding.yaml
+- argocd-server-configmap.yaml
+- argocd-server-crds.yaml
+- argocd-server-deployments.yaml
+- argocd-server-role.yaml
+- argocd-server-rolebinding.yaml
+- argocd-server-sa.yaml
+- argocd-server-secret.yaml
+- argocd-server-services.yaml
+- bootstrap-namespaces.yaml
+
+bases:
+- ../../apps/imagepullsecret-patcher/
+- ../../apps/threatstack/
+- ../../apps/fluent-bit/
+- ../../apps/prometheus-adapter/

@@ -1,0 +1,12 @@
+# Let's add the default namespaces we need per cluster and are not attached to a specific app
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: main
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tools

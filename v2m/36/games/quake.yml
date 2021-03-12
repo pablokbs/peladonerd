@@ -1,0 +1,9 @@
+apiVersion: retro.sparkfabrik.com/v1
+kind: Game
+metadata:
+  name: quake
+spec:
+  name: "Quake"
+  zipUrl: "https://archive.org/download/msdos_Quake106_shareware/msdos_Quake106_shareware.zip"
+  dir: "."
+  exe: "QUAKE.EXE"

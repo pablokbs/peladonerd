@@ -69,6 +69,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    28. [Pod Disruption Budgets](./kubernetes/28) / [video](https://youtu.be/2tv1nhJuuJU)
    29. [k0s](./kubernetes/29) / [video](https://youtu.be/netJ0Nuj_tw)
    30. [istio](./kubernetes/30) / [video](https://youtu.be/ofJ5swfP2kQ)
+   31. [Bootstrap Apps en Kubernetes](./kubernetes/31) / [video](https://youtu.be/ZjnMpMXmKZQ)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
@@ -119,6 +120,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    33. [Gemini](./v2m/33) / [video](https://youtu.be/nSdzAcCXLxE)
    34. [ImagePullSecret-Patcher](./v2m/34) / [video](https://youtu.be/e_cBicVb0E0)
    35. [MinIO](./v2m/35) / [video](https://youtu.be/_QHUR2VFmfo)
+   36. [Gaming en Kubernetes - Additronk8s](./v2m/36) / [video](https://youtu.be/9c3Cff4xb1k)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: game-controller
+  name: game-controller
+  namespace: games
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-controller
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: game-controller
+    spec:
+      serviceAccount: game-controller-service-account
+      containers:
+      - image: paolomainardi/additronk8s-game-controller
+        name: additronk8s-game-controller
