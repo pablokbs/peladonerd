@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-helm
+  namespace: argocd
+spec:
+  source:
+    path: apps/prometheus-helm
+    repoURL: https://github.com/pablokbs/peladonerd/argo-manifests # reemplazar con repo url real
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
+  project: default
+  ignoreDifferences:
+  - kind: Serviceaccount
+    jsonPointers:
+    - /imagePullSecrets
