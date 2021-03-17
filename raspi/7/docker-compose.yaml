@@ -17,7 +17,7 @@ services:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
   letsencrypt:
-    image: duch/letsencrypt-nginx-proxy-companion:stable
+    image: jrcs/letsencrypt-nginx-proxy-companion:stable
     restart: always
     volumes:
       - certs:/etc/nginx/certs:rw
