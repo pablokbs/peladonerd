@@ -121,6 +121,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    34. [ImagePullSecret-Patcher](./v2m/34) / [video](https://youtu.be/e_cBicVb0E0)
    35. [MinIO](./v2m/35) / [video](https://youtu.be/_QHUR2VFmfo)
    36. [Gaming en Kubernetes - Additronk8s](./v2m/36) / [video](https://youtu.be/9c3Cff4xb1k)
+   37. [Whoogle](./v2m/37) / [video](https://youtu.be/MrFC8dYmjg8)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)
