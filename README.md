@@ -28,6 +28,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    9. [Multi-Arch Builds](./docker/9) / [video](https://youtu.be/oqbHdn1oNCs) 
    10. [Docker Registry](./docker/10) / [video](https://youtu.be/stVspIUHP4Q) 
    11. [Buildkit](./docker/11) / [video](https://youtu.be/NrpM2FX47Hg)
+   12. [Curso Docker Completo 2021](./docker/12) / [video](https://youtu.be/CV_Uf3Dq-EU)
 
 2. Raspberry
    1. [Instalación de Docker en Raspberry y compartir archivos samba](./raspi/1) / [video](https://youtu.be/pliGG1M87W8)
