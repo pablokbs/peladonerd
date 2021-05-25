@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './portainer_data:/data'
+    hostname: portainer
+
+# Instalando el Portainer Agent se puede conectar hacia este nodo y monitorearlo desde otro Portainer remoto
+# agregandoló como un "Endpoint" del tipo "Agent", apuntando a la IP:9001 del nodo local
+portainer-agent:
+    container_name: portainer-agent
+    image: portainer/agent
+    ports:
+      - 9001:9001
+    restart: always
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/var/lib/docker/volumes:/var/lib/docker/volumes'
+    hostname: portainer-agent
