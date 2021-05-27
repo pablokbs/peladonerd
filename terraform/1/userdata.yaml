@@ -1,4 +1,6 @@
 #cloud-config
+# Documento acerca de este lenguaje:
+# https://cloudinit.readthedocs.io/en/latest/topics/examples.html
 package_update: true
 packages:
   - docker.io
