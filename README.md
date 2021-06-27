@@ -72,6 +72,8 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    30. [istio](./kubernetes/30) / [video](https://youtu.be/ofJ5swfP2kQ)
    31. [Bootstrap Apps en Kubernetes](./kubernetes/31) / [video](https://youtu.be/ZjnMpMXmKZQ)
    32. [LimitRange](./kubernetes/32) / [video](https://youtu.be/2VbJioZ-UJo)
+   34. [Helm 2](./kubernetes/34) / [video](https://youtu.be/jScW2XaS8uI)
+   35. [Curso Kubernetes Completo 2021](./kubernetes/35) / [video](https://youtu.be/DCoBcpOA7W4)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
