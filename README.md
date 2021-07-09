@@ -88,6 +88,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    10. [CoreDNS](./varios/10) / [video](https://youtu.be/tE9YjEV1T4E)
    11. [RCA](./varios/11) / [video](https://youtu.be/ErbOF56SAWE)
    12. [WireGuard + PiHole](./varios/12) / [video](https://youtu.be/R29YBmYxXAk)
+   13. [VIM](./varios/13) / [video](https://www.youtube.com/watch?v=TmNa4y-K5Z8)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
