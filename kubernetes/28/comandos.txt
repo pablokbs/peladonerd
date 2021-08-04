@@ -1,0 +1,6 @@
+kubectl apply -f 01-deployment-nginx.yaml
+kubectl drain minikube-m02 --ignore-daemonsets
+kubectl uncordon minikube-m02
+kubectl delete deployment nginx
+kubectl apply -f 02-pdb-nginx.yaml
+kubectl drain minikube-m02 --ignore-daemonsets
