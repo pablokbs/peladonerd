@@ -74,6 +74,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    32. [LimitRange](./kubernetes/32) / [video](https://youtu.be/2VbJioZ-UJo)
    34. [Helm 2](./kubernetes/34) / [video](https://youtu.be/jScW2XaS8uI)
    35. [Curso Kubernetes Completo 2021](./kubernetes/35) / [video](https://youtu.be/DCoBcpOA7W4)
+   36. [external-dns](./kubernetes/36) / [video](https://youtu.be/M5588owHvV8)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
