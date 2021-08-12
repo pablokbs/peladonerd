@@ -31,6 +31,9 @@ Agregué un prevent_destroy para evitar que Terraform accidentalmente elimine el
 
 8.  **Usé la imágen de Debian 10:** Cuestión de gustos, si desean pueden cambiarlo por Ubuntu.
 
+9. **Usando docker-compose** Para quienes quieran usar Compose, el archivo docker-compose.yaml está en este repositorio.
+
+
 **Consejos luego de tener el servidor instalado:**:
 
 1.  **DKIM:** Deben agregar el registro DKIM en su DNS. Lo pueden sacar desde _Virtual Domains > tudominio.com > DKIM key_
