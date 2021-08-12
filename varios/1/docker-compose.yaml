@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: nginxproxy/nginx-proxy:0.9
     restart: always
     ports:
       - "80:80"
@@ -11,23 +11,25 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs:ro
       - vhostd:/etc/nginx/vhost.d
+      - dhparam:/etc/nginx/dhparam
       - html:/usr/share/nginx/html
     labels:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
   letsencrypt:
-    image: jrcs/letsencrypt-nginx-proxy-companion
+    image: nginxproxy/acme-companion:2.0.2
     restart: always
     environment:
       - NGINX_PROXY_CONTAINER=nginx-proxy
     volumes:
       - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
       - vhostd:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   www:
-    image: nginx
+    image: nginx:1.21.1
     restart: always
     expose:
       - "80"
@@ -44,3 +46,5 @@ volumes:
   certs:
   html:
   vhostd:
+  dhparam:
+  acme:
