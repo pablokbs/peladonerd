@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  poste:
+       image: analogic/poste.io
+       restart: always
+       network_mode: "host"
+       expose:
+         - 25
+         - 8080
+         # Configurado en 8080 para el webmail, dado que puede generar conflicto con otro servicio en el puerto 80
+         - 4433
+         # Configurado en 4433 para el webmail via SSH, dado que puede generar conflicto con otro servicio en el puerto 80
+         - 110
+         - 143
+         - 465
+         - 587
+         - 993
+         - 995
+         - 4190
+       volumes:
+         - ~/configs/poste/mail:/data
+         - ~/.bashrc:/root/.bashrc
+       container_name: poste.io
+       hostname: mail.achicrip.org
+       environment:
+         - HTTPS=ON
+         - DISABLE_CLAMAV=TRUE
+         - TZ=America/Santiago
+         - HTTPS_PORT=4433   #Aca le cambiamos el port via Environment
+         - HTTP_PORT=8080    #Aca le cambiamos el port via Environment
