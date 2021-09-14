@@ -1,6 +1,10 @@
+version: '2'
+services: 
   netdata:
     image: netdata/netdata:v1.19.0
     restart: always
+    ports: 
+      - 8080:19999
     expose:
       - "19999"
     volumes:
@@ -27,6 +31,8 @@
     environment:
       - CONTAINERS=1
 
+volumes: 
+  netdata-etc:
 
 # Si necesitas usar autenticación, podés usar jwilder/nginx-proxy y crear un archivo htpasswd para proteger
 # el VHOST de netdata
