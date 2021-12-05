@@ -1,0 +1,25 @@
+k create --dry-run=client --validate -f 02-hello-deployment-service.yaml
+k scale deployment hello --replicas=10
+
+k explain pod
+k explain pod.spec
+
+k explain deploy.spec.replicas
+k get pods --sort-by=metadata.name
+k get pods --sort-by=metadata.creationTimestamp
+
+kubectl run --rm -it --image=alpine alpine -- sh
+kubectl create deploy nginx --image=nginx --dry-run=client -o yaml
+kubectl run nginx --image=nginx --restart=Never --limits='cpu=300m,memory=512Mi' --dry-run=client -o yaml
+kubectl expose deployment nginx --port=80 --type=ClusterIP
+
+kubectl create deploy web --replicas=2 --image=nginx:1.13.2
+kubectl get deploy web
+kubectl set image deployment web nginx=nginx:1.14.2 --record
+kubectl rollout status deployment/web
+kubectl rollout history deployment/web
+kubectl rollout undo deployment web
+
+k logs deploy/hello -f
+
+
