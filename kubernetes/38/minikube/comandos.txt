@@ -1,0 +1,5 @@
+thanks to: https://dpb587.me/post/2020/04/11/minikube-and-bridged-networking/
+
+minikube config set vm-driver virtualbox
+
+minikube start
