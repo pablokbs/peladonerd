@@ -38,7 +38,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    4. [Acceso remoto a tu Raspberry usando NO-IP.com](./raspi/4) / [video](https://youtu.be/QW9Nzxrj0pY)
    5. [Flexget](https://github.com/pablokbs/plex-rpi) / [video](https://youtu.be/TqVoHWjz_tI)
    6. [Modo Kiosco](./raspi/6) / [video](https://youtu.be/PYxFGXGchLQ)
-   7. [Nginx + SSL en Raspberry](./raspi/7) / [video](https://youtu.be/Jua_Y-Q9lhk)
+   7. [Nginx + SSL en Raspberry](./raspi/7) / [video](https://youtu.be/bNgoM8AV0Ec)
 
 3. Kubernetes
    1. [Creando un cluster de Kubernetes con Digital Ocean](./kubernetes/1) / [video](https://youtu.be/fhYSKEy0s8w)
