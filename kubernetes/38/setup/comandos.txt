@@ -1,0 +1,3 @@
+helm install crossplane --namespace crossplane crossplane-stable/crossplane --set provider.packages={crossplane/provider-aws:v0.23.0}
+kubectl create secret generic aws-creds -n crossplane-system --from-file=creds=./creds.conf
+
