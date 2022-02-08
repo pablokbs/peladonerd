@@ -18,7 +18,7 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   # Checkea las opciones aqui https://www.vagrantup.com/docs/networking/private_network
-  config.vm.network "private_network", ip: "192.168.100.2"
+  config.vm.network "private_network", ip: "192.168.56.2"
   config.vm.synced_folder "~/docker", "/home/vagrant/docker"
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "2048"
