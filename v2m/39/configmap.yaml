@@ -1,0 +1,33 @@
+route:
+  # Main route
+  routes:
+    # Esta ruta permite tirar todos los eventos porque no tiene campos para que coincidan o reglas para droppear
+    # - match:
+    #     - receiver: dump
+    # Esto empieza otra ruta, droppea todos los eventos en el namespace *test* y eventos *Normal*
+    # para capturar eventos criticos
+    - drop:
+        - namespace: "*test*"
+        - type: "Normal"
+      match:
+        - receiver: "critical-events-queue"
+    # Esta es la ruta final para los mensajes de user
+    - match:
+        - kind: "Pod|Deployment|ReplicaSet"
+          receiver: "slack"
+          type: "Warning"
+receivers:
+  - name: "slack"
+    slack:
+      token: TU_TOKEN_KEY_AQUI
+      channel: "{{ .InvolvedObject.Labels.owner }}"
+      message: "{{ .Message }}"
+      color: # optional
+      title: # optional
+      author_name: # optional
+      footer: # optional
+      fields:
+        namespace: "{{ .Namespace }}"
+        reason: "{{ .Reason }}"
+        object: "{{ .Namespace }}"
+        type: "{{ .Type }}"

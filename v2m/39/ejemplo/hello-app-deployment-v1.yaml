@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-v1
+  labels:
+    app: hello-v1
+    owner: alertas-pablo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-v1
+  template:
+    metadata:
+      labels:
+        app: hello-v1
+        owner: alertas-pablo
+    spec:
+      containers:
+      - name: hello
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

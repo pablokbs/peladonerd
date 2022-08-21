@@ -1,0 +1,11 @@
+namespace: monitoring
+
+resources:
+  - namespace.yaml
+  - roles.yaml
+  - deployment.yaml
+
+configMapGenerator:
+  - name: event-exporter-cfg
+    files:
+    - configmap.yaml
