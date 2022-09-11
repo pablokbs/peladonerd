@@ -88,3 +88,4 @@
   685  2022-09-10 14:43:45 docker stop 675b5ee57e80
   687  2022-09-11 14:18:00 history |grep docker > ../../listacomandos.log
   docker run -dv ~/github/peladonerd/docker/12/app/etc:/etc/todos -p3000:3000 4d8f05754025
+  docker network create mired
