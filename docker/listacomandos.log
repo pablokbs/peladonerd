@@ -1,0 +1,90 @@
+   27  2022-09-10 13:58:27 docker stop $(docker ps -aq)
+  121  2022-09-10 13:58:27 docker exec -it 5cc6be240070339ed5b49ba0183b526754a724cbf0b54b28062a1f39694da167 /bin/sh
+  127  2022-08-27 14:35:31 cat dockerweb/
+  128  2022-08-27 14:35:35 cat dockerweb/jenkinsfile 
+  183  2022-08-27 20:46:17 sudo usermod -a -G docker jenkins
+  217  2022-09-03 16:24:40 docker --version
+  219  2022-09-03 16:25:48 docker pull php:7.4-nginx
+  220  2022-09-03 16:29:31 docker pull trafex/alpine-nginx-php7
+  222  2022-09-03 16:34:26 docker pull https://github.com/MariaDB/mariadb-docker/blob/97e6715fb9f86010de510eef718f7341e3011c25/10.6/Dockerfile
+  223  2022-09-03 16:34:36 wget https://github.com/MariaDB/mariadb-docker/blob/97e6715fb9f86010de510eef718f7341e3011c25/10.6/Dockerfile
+  225  2022-09-03 16:35:48 wget https://github.com/MariaDB/mariadb-docker/blob/97e6715fb9f86010de510eef718f7341e3011c25/10.6/Dockerfile
+  226  2022-09-03 16:36:01 docker pull Dockerfile 
+  227  2022-09-03 16:36:55 docker pull mariadb
+  229  2022-09-03 17:12:17 docker run -p 3306:3306 -name basedatos -v /Users/edgar/basededatos:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=050676vp$ -d mariadb
+  230  2022-09-03 17:12:39 docker run -p 3306:3306 --name basedatos -v /Users/edgar/basededatos:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=050676vp$ -d mariadb
+  233  2022-09-03 17:15:26 docker run -p 9090:80 -v /Users/edgar/html:/var/www/html --name miservidor.php  -d --link basedatos trafex/alpine-nginx-php7 
+  236  2022-09-03 17:17:03 docker exec -it 9d6d12bddff26678c751e70abebe4fc94a880de2c9a2810b355c2db272368b08 /bin/sh
+  237  2022-09-03 17:20:07 docker run -p 9090:8080 -v /Users/edgar/html:/var/www/html --name miservidor.php  -d --link basedatos trafex/alpine-nginx-php7 
+  243  2022-09-03 17:37:49 docker exec -it --user=root trafex /bin/sh
+  244  2022-09-03 17:37:57 docker exec -it --user=root trafex/alpine-nginx-php7 /bin/sh
+  245  2022-09-03 17:38:08 docker exec -it --user=root trafex/alpine-nginx-php7
+  246  2022-09-03 17:38:39 docker exec -it --user=root trafex/alpine-nginx-php7 /bin/sh
+  247  2022-09-03 17:39:07 docker exec -it --user=root miserver.php /bin/sh
+  248  2022-09-03 17:39:48 docker exec -it --user=root d03c5e607375 /bin/sh
+  249  2022-09-03 17:41:01 docker exec -it --user=root ce113790b2f6dc67132048bcfa68768a32498bee803369bdf7fba029f8a8f9d3 /bin/sh
+  250  2022-09-03 17:21:32 docker exec -it ce113790b2f6dc67132048bcfa68768a32498bee803369bdf7fba029f8a8f9d3 /bin/sh
+  251  2022-09-03 17:50:27 docker run -p 9090:80 -v /Users/edgar/html:/var/www/html --name miservidor.php  -d --link basedatos trafex/alpine-nginx-php7 ls
+  257  2022-09-03 19:35:50 docker exec -it ce113790b2f6dc67132048bcfa68768a32498bee803369bdf7fba029f8a8f9d3 /bin/sh
+  258  2022-09-03 17:22:54 docker exec -it fcafcd5e107baa323dec74f1a4689d34676485bfc985c9574ceba8321c7e3b7a /bin/sh
+  261  2022-09-03 19:41:13 docker exec -it ce113790b2f6dc67132048bcfa68768a32498bee803369bdf7fba029f8a8f9d3 /bin/sh
+  262  2022-09-03 19:44:28 docker run -p 9090:80 -v /Users/edgar/html:/var/www/html --name nginx_php8  -d --link basedatos trafex/alpine-nginx-php7 ls
+  263  2022-09-03 19:45:03 docker run -p 9090:8080 -v /Users/edgar/html:/var/www/html --name nginx_php8  -d --link basedatos trafex/alpine-nginx-php7 ls
+  264  2022-09-03 19:45:59 docker run -p 8080:8080 -v /Users/edgar/html:/var/www/html --name nginx_php8  -d --link basedatos trafex/alpine-nginx-php7 
+  268  2022-09-03 19:51:02 docker network ls
+  278  2022-09-03 20:08:37 docker exec -it c5563a3988ed6745de31ccf8eeb1ace42606a1a6fa4251e9c20119ea97d7db91 /bin/sh
+  423  2022-09-05 22:07:10 docker version --format -
+  621  2022-09-10 13:52:28 docker run postgres
+  622  2022-09-10 13:54:16 docker run postgres -e POSTGRES_PASSWORD=050676$
+  623  2022-09-10 13:54:33 docker run postgres -e POSTGRES_PASSWORD=050676$ postgres
+  624  2022-09-10 13:54:36 docker run postgres -e POSTGRES_PASSWORD=050676$ 
+  625  2022-09-10 13:54:51 docker run postgres -e "POSTGRES_PASSWORD=050676$" 
+  626  2022-09-10 13:56:13 docker run postgres:9.6
+  627  2022-09-10 13:58:54 docker pull ubuntu
+  628  2022-09-10 13:59:37 docker images
+  629  2022-09-10 14:02:43 docker ps  -a
+  630  2022-09-10 14:03:53 docker-start 735f096c8614
+  631  2022-09-10 14:04:01 docker start 735f096c8614
+  632  2022-09-10 14:04:13 docker start cc86f17d45c1 0498f94f54d3
+  633  2022-09-10 14:04:50 docker logs 735f096c8614
+  634  2022-09-10 14:05:02 docker logs 0498f94f54d3
+  635  2022-09-10 14:05:28 docker logs 0498f94f54d3 -f
+  636  2022-09-10 14:06:56 docker stop 8fb6eab2fac0 735f096c8614
+  637  2022-09-10 14:07:10 docker -it cc86f17d45c1
+  638  2022-09-10 14:07:16 docker -it cc86f17d45c1 bash
+  639  2022-09-10 14:07:19 docker -it cc86f17d45c1 sh
+  640  2022-09-10 14:08:36 docker -log cc86f17d45c1
+  641  2022-09-10 14:08:41 docker log cc86f17d45c1
+  642  2022-09-10 14:08:54 docker logs cc86f17d45c1
+  643  2022-09-10 14:10:40 docker ps -a
+  644  2022-09-10 14:10:59 docker run cc86f17d45c1
+  645  2022-09-10 14:11:29 docker start cc86f17d45c1
+  646  2022-09-10 14:11:49 docker exec -it cc86f17d45c1 sh
+  647  2022-09-10 14:12:51 docker logs docker-credential-ecr-login
+  648  2022-09-10 14:12:58 docker logs docker-compose-v1
+  649  2022-09-10 14:13:15 docker log nostalgic_cerf
+  650  2022-09-10 14:13:20 docker logs nostalgic_cerf
+  651  2022-09-10 14:13:34 docker logs nifty_heyrovsky
+  652  2022-09-10 14:14:51 docker run nginx -d
+  653  2022-09-10 14:15:26 docker run -d nginx 
+  654  2022-09-10 14:16:10 docker stop cc86f17d45c1
+  658  2022-09-10 14:17:35 cd docker/
+  668  2022-09-10 14:26:35 docker build Dockerfile
+  669  2022-09-10 14:27:48 docker build . -t minodeexample
+  670  2022-09-10 14:34:18 docker run minodeexample
+  671  2022-09-10 14:34:47 docker run -p3000:3000 minodeexample
+  672  2022-09-10 14:35:49 docker run -dp3000:3000 minodeexample
+  673  2022-09-10 14:36:14 docker stop minodeexample
+  674  2022-09-10 14:36:20 docker stop flamboyant_cohen
+  675  2022-09-10 14:37:40 docker ps 
+  676  2022-09-10 14:37:48 docker stop 14b2dfd5d36d
+  677  2022-09-10 14:39:27 docker -v ./etc:/etc/todos -p3000:3000 -d 14b2dfd5d36d
+  678  2022-09-10 14:39:45 docker -v ./etc:/etc/todos -p3000:3000 -d minodeexample
+  679  2022-09-10 14:40:09 docker -dv ./etc:/etc/todos -p3000:3000 minodeexample
+  680  2022-09-10 14:40:38 docker run -dv ./etc:/etc/todos -p3000:3000 minodeexample
+  681  2022-09-10 14:42:15 docker stop 20ecc3651d6c
+  682  2022-09-10 14:42:22 docker run -dv ~/github/peladonerd/docker/12/app/etc:/etc/todos -p3000:3000 minodeexample
+  684  2022-09-10 14:43:37 docker ps
+  685  2022-09-10 14:43:45 docker stop 675b5ee57e80
+  687  2022-09-11 14:18:00 history |grep docker > ../../listacomandos.log
+  docker run -dv ~/github/peladonerd/docker/12/app/etc:/etc/todos -p3000:3000 4d8f05754025

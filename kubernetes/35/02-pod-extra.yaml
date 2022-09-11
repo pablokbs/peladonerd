@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"name":"nginx","namespace":"default"},"spec":{"containers":[{"env":[{"name":"MI_VARIABLE","value":"ovandido"},{"name":"MI_OTRA_VARIABLE","value":"ovandido"},{"name":"DD_AGENT_HOST","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"nginx:alpine","livenessProbe":{"initialDelaySeconds":15,"periodSeconds":20,"tcpSocket":{"port":80}},"name":"nginx","ports":[{"containerPort":80}],"readinessProbe":{"httpGet":{"path":"/","port":80},"initialDelaySeconds":5,"periodSeconds":10},"resources":{"limits":{"cpu":"500m","memory":"128Mi"},"requests":{"cpu":"200m","memory":"64Mi"}}}]}}
+  creationTimestamp: "2022-09-06T03:47:09Z"
+  name: nginx
+  namespace: default
+  resourceVersion: "4312"
+  uid: 3f83cfaf-6266-4743-95fd-2847cedeb8d8
+spec:
+  containers:
+  - env:
+    - name: MI_VARIABLE
+      value: ovandido
+    - name: MI_OTRA_VARIABLE
+      value: ovandido
+    - name: DD_AGENT_HOST
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.hostIP
+    image: nginx:alpine
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      failureThreshold: 3
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      successThreshold: 1
+      tcpSocket:
+        port: 80
+      timeoutSeconds: 1
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 3
+      httpGet:
+        path: /
+        port: 80
+        scheme: HTTP
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources:
+      limits:
+        cpu: 500m
+        memory: 128Mi
+      requests:
+        cpu: 200m
+        memory: 64Mi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-blz42
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-blz42
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:47:09Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:47:19Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:47:19Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:47:09Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://c782aabf1857b4d429404d1e4ad8bde35b1a23e237edaecb5e1e7fd06c06339c
+    image: nginx:alpine
+    imageID: docker-pullable://nginx@sha256:082f8c10bd47b6acc8ef15ae61ae45dd8fde0e9f389a8b5cb23c37408642bf5d
+    lastState: {}
+    name: nginx
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2022-09-06T03:47:10Z"
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 172.17.0.4
+  podIPs:
+  - ip: 172.17.0.4
+  qosClass: Burstable
+  startTime: "2022-09-06T03:47:09Z"

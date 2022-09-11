@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2022-09-06T03:52:51Z"
+  generateName: hello-minikube-6ddfcc9757-
+  labels:
+    app: hello-minikube
+    pod-template-hash: 6ddfcc9757
+  name: hello-minikube-6ddfcc9757-mdl98
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: hello-minikube-6ddfcc9757
+    uid: 354a7a97-07a5-4f2a-88ac-9fc83f4c3b18
+  resourceVersion: "5104"
+  uid: 733f068e-8b0f-49e6-b8ea-aec68d5d1cd5
+spec:
+  containers:
+  - image: k8s.gcr.io/echoserver:1.4
+    imagePullPolicy: IfNotPresent
+    name: echoserver
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-w7wvb
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-w7wvb
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:52:51Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:52:51Z"
+    message: 'containers with unready status: [echoserver]'
+    reason: ContainersNotReady
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:52:51Z"
+    message: 'containers with unready status: [echoserver]'
+    reason: ContainersNotReady
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-06T03:52:51Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://524e8fe65e245d38cfc26020e7de7ad76ab9c165073ae970796c93f48c19ed45
+    image: k8s.gcr.io/echoserver:1.4
+    imageID: docker-pullable://k8s.gcr.io/echoserver@sha256:5d99aa1120524c801bc8c1a7077e8f5ec122ba16b6dda1a5d3826057f67b9bcb
+    lastState:
+      terminated:
+        containerID: docker://524e8fe65e245d38cfc26020e7de7ad76ab9c165073ae970796c93f48c19ed45
+        exitCode: 1
+        finishedAt: "2022-09-06T03:55:54Z"
+        reason: Error
+        startedAt: "2022-09-06T03:55:54Z"
+    name: echoserver
+    ready: false
+    restartCount: 5
+    started: false
+    state:
+      waiting:
+        message: back-off 2m40s restarting failed container=echoserver pod=hello-minikube-6ddfcc9757-mdl98_default(733f068e-8b0f-49e6-b8ea-aec68d5d1cd5)
+        reason: CrashLoopBackOff
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 172.17.0.5
+  podIPs:
+  - ip: 172.17.0.5
+  qosClass: BestEffort
+  startTime: "2022-09-06T03:52:51Z"
