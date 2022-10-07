@@ -1,0 +1,41 @@
+resources:
+- hello-app-v1.yaml
+
+
+# Hay que correr esto antes de empezar para que kustomize encuentre helm
+# export helmCommand=/usr/local/bin/helm
+
+helmCharts:
+# Adding chart for elastic search
+- name: elasticsearch
+  repo: https://helm.elastic.co
+  version: 7.13.1
+  releaseName: elasticsearch
+  #valuesFile: elasticsearch.yaml
+
+- name: kibana
+  repo: https://helm.elastic.co
+  version: 7.13.1
+  releaseName: kibana
+  #valuesFile: kibana.yaml
+
+# Adding chart for prometheus
+- name: prometheus
+  repo: https://prometheus-community.github.io/helm-charts
+  version: 15.14.0
+  releaseName: prometheus
+  valuesFile: prometheus.yaml
+
+# Adding chart for grafana
+- name: grafana
+  repo: https://grafana.github.io/helm-charts
+  version: 6.1.11
+  releaseName: grafana
+  #valuesFile: grafana.yaml
+
+# Adding chart for fluent-bit
+- name: fluent-bit
+  repo: https://fluent.github.io/helm-charts
+  version: 0.20.9
+  releaseName: fluent-bit
+  valuesFile: fluent-bit.yaml

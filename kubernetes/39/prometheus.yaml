@@ -1,0 +1,10 @@
+nodeExporter:
+  enabled: false
+
+# serverFiles:
+#   prometheus.yml:
+#     scrape_configs:
+#     # Add job for fluent-bit
+#     - job_name: 'fluent-bit'
+#       static_configs:
+#       - targets: ['fluent-bit:2021']
