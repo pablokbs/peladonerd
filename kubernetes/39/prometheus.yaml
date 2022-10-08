@@ -1,10 +1,17 @@
 nodeExporter:
   enabled: false
-
-# serverFiles:
-#   prometheus.yml:
-#     scrape_configs:
-#     # Add job for fluent-bit
-#     - job_name: 'fluent-bit'
-#       static_configs:
-#       - targets: ['fluent-bit:2021']
+prometheusOperator:
+  enabled: true
+prometheus:
+  enabled: true
+  additionalServiceMonitors:
+  - name: fluent-bit
+    jobLabel: "generic-scraper-http"
+    selector:
+      matchLabels:
+        app: fluent-bit
+    endpoints:
+      - port: metrics
+        interval: 30s
+        path: /api/v1/metrics/prometheus
+        scheme: http

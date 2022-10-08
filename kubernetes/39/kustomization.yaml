@@ -6,7 +6,7 @@ resources:
 # export helmCommand=/usr/local/bin/helm
 
 helmCharts:
-# Adding chart for elastic search
+Adding chart for elastic search
 - name: elasticsearch
   repo: https://helm.elastic.co
   version: 7.13.1
@@ -20,10 +20,10 @@ helmCharts:
   #valuesFile: kibana.yaml
 
 # Adding chart for prometheus
-- name: prometheus
+- name: kube-prometheus-stack
   repo: https://prometheus-community.github.io/helm-charts
-  version: 15.14.0
-  releaseName: prometheus
+  version: 40.5.0
+  releaseName: prometheus-operator
   valuesFile: prometheus.yaml
 
 # Adding chart for grafana
