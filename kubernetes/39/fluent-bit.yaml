@@ -96,7 +96,7 @@ config:
     # [OUTPUT]
     #     Name            slack
     #     Match           peladonerd
-    #     webhook         https://hooks.slack.com/services/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
+    #     webhook         https://hooks.slack.com/services/XXXXXX/XXXXXX/XXXXXXXXX
 
   ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/classic-mode/upstream-servers
   upstream: {}
