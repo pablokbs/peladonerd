@@ -1,0 +1,71 @@
+version: '3'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:1.0.1-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - ./nginx/custom.conf:/etc/nginx/conf.d/nginx_custom.conf
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:2.2.1
+    restart: always
+    volumes:
+      - certs:/etc/nginx/certs:rw
+      - confd:/etc/nginx/conf.d
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  db:
+    restart: always
+    image: postgres:14-alpine
+    shm_size: 256mb
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+    volumes:
+      - ./postgres14:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=xxxxxxx
+      - POSTGRES_USER=mastodon
+      - POSTGRES_DB=mastodon_production
+
+  redis:
+    restart: always
+    image: redis:7-alpine
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+    volumes:
+      - ./redis:/data
+
+  web:
+    image: lscr.io/linuxserver/mastodon:4.0.2
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      - VIRTUAL_HOST=mastodon.ejemplo.com
+      - LETSENCRYPT_HOST=mastodon.ejemplo.com
+      - LETSENCRYPT_EMAIL=admin@ejemplo.com
+    expose:
+      - '80'
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./mastodon/config:/config
+
+volumes:
+  certs:
+  confd:
+  vhostd:
+  html:
