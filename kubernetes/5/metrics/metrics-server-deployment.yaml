@@ -32,7 +32,7 @@ spec:
         image: k8s.gcr.io/metrics-server-amd64:v0.3.1
         imagePullPolicy: Always
         command:
-        - /metrics
+        - /metrics-server
         - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalIP
         volumeMounts:
