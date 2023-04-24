@@ -38,6 +38,7 @@ write_files:
             - ./nginx/certs:/etc/nginx/certs:ro
             - vhost:/etc/nginx/vhost.d
             - html:/usr/share/nginx/html
+            - acme:/etc/acme.sh
           labels:
             - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
@@ -49,9 +50,11 @@ write_files:
             - ./nginx/certs:/etc/nginx/certs
             - vhost:/etc/nginx/vhost.d
             - html:/usr/share/nginx/html
+            - acme:/etc/acme.sh
 
       volumes:
         vhost:
         html:
+        acme:
 runcmd:
   - docker-compose -f /root/docker-compose.yaml up -d

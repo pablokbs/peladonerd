@@ -14,6 +14,7 @@ services:
       - confd:/etc/nginx/conf.d
       - vhostd:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
     labels:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
 
@@ -26,6 +27,7 @@ services:
       - vhostd:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
 
   rancher:
     image: rancher/rancher:v2.3.5
@@ -43,3 +45,4 @@ volumes:
   confd:
   vhostd:
   html:
+  acme:
