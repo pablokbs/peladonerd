@@ -1,0 +1,22 @@
+# This is a minimal values file for cluster-autoscaler chart running in Linode
+#
+cloudProvider: linode
+rbac:
+  create: true
+autoDiscovery:
+  clusterName: ca-tet
+extraArgs:
+  balance-similar-node-groups: "true"
+  cloud-config: /etc/kubernetes/cluster-autoscaler.cfg
+#  lke-cluster-id: "98611"
+extraVolumes:
+  - name: cluster-autoscaler
+    secret:
+      secretName: cluster-autoscaler
+extraVolumeMounts:
+  - name: cluster-autoscaler
+    mountPath: /etc/kubernetes
+image:
+  repository: registry.k8s.io/autoscaling/cluster-autoscaler
+  tag: v1.25.0 # tiene que coincidir con la version de tu cluster
+  pullPolicy: IfNotPresent

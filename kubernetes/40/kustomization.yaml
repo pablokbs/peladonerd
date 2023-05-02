@@ -1,0 +1,19 @@
+# Hay que correr esto antes de empezar para que kustomize encuentre helm
+# export helmCommand=/usr/local/bin/helm
+
+helmCharts:
+# Adding chart for cluster-autoscaler
+- name: cluster-autoscaler
+  namespace: kube-system
+  repo: https://kubernetes.github.io/autoscaler
+  version: 9.26.0
+  valuesFile: cluster-autoscaler-values.yaml
+
+secretGenerator:
+  - name: cluster-autoscaler
+    namespace: kube-system
+    files:
+      - cluster-autoscaler.cfg
+
+resources:
+  - 01-hello-app-deployment-v1.yaml

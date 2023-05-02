@@ -78,6 +78,8 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    36. [external-dns](./kubernetes/36) / [video](https://youtu.be/M5588owHvV8)
    37. [MetalLB](./kubernetes/37) / [video](https://youtu.be/ZuRrpD3hL5I)
    38. [crossplane](./kubernetes/38) / [video](https://youtu.be/dWbEvHOtljg)
+   39. [fluent-bit](./kubernetes/39) / [video](https://youtu.be/bwoxefs057g)
+   40. [cluster-autoscaler](./kubernetes/40) / [video](https://youtu.be/BpEia0P1jMo)
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)
