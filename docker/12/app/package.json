@@ -11,7 +11,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "mysql": "^2.17.1",
+    "mysql": "^2.18.0",
     "sqlite3": "^4.1.0",
     "uuid": "^3.3.3",
     "wait-port": "^0.2.2"
