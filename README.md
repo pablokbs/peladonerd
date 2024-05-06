@@ -139,6 +139,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    37. [Whoogle](./v2m/37) / [video](https://youtu.be/MrFC8dYmjg8)
    38. [MetalLB](./v2m/38) / [video](https://youtu.be/ZuRrpD3hL5I)
    39. [Fluent-bit](./v2m/39) / [video](https://youtu.be/bwoxefs057g)
+   40. [Error-pages](./v2m/40) / [video](https://youtu.be/p59yLAgI-XY)
 
 6. Terraform
    1. [Terraform 1](./terraform/1) / [video](https://youtu.be/1itPqkU8XZw)

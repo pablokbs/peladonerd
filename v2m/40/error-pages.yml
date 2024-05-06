@@ -1,0 +1,140 @@
+templates:
+  # - name: {string} Template name (optional, if path is defined)
+  #   path: {string} Path to the template file
+  #   content: {string} Template content, if path is not defined
+  - path: ./templates/ghost.html
+    name: ghost # name is optional, if path is defined
+    content: ${GHOST_TEMPLATE_CONTENT}
+  - path: ./templates/l7-light.html
+  - path: ./templates/l7-dark.html
+  - path: ./templates/shuffle.html
+  - path: ./templates/noise.html
+  - path: ./templates/hacker-terminal.html
+  - path: ./templates/cats.html
+  - path: ./templates/lost-in-space.html
+  - path: ./templates/app-down.html
+  - path: ./templates/connection.html
+  - path: ./templates/matrix.html
+  - path: ./templates/orient.html
+
+formats:
+  json:
+    content: |
+      {
+        "error": true,
+        "code": {{ code | json }},
+        "message": {{ message | json }},
+        "description": {{ description | json }}{{ if show_details }},
+        "details": {
+          "host": {{ host | json }},
+          "original_uri": {{ original_uri | json }},
+          "forwarded_for": {{ forwarded_for | json }},
+          "namespace": {{ namespace | json }},
+          "ingress_name": {{ ingress_name | json }},
+          "service_name": {{ service_name | json }},
+          "service_port": {{ service_port | json }},
+          "request_id": {{ request_id | json }},
+          "timestamp": {{ now.Unix }}
+        }{{ end }}
+      }
+
+  xml:
+    content: |
+      <?xml version="1.0" encoding="utf-8"?>
+      <error>
+        <code>{{ code }}</code>
+        <message>{{ message }}</message>
+        <description>{{ description }}</description>{{ if show_details }}
+        <details>
+          <host>{{ host }}</host>
+          <originalURI>{{ original_uri }}</originalURI>
+          <forwardedFor>{{ forwarded_for }}</forwardedFor>
+          <namespace>{{ namespace }}</namespace>
+          <ingressName>{{ ingress_name }}</ingressName>
+          <serviceName>{{ service_name }}</serviceName>
+          <servicePort>{{ service_port }}</servicePort>
+          <requestID>{{ request_id }}</requestID>
+          <timestamp>{{ now.Unix }}</timestamp>
+        </details>{{ end }}
+      </error>
+
+pages:
+  400:
+    message: Bad Request
+    description: The server did not understand the request
+
+  401:
+    message: Unauthorized
+    description: The requested page needs a username and a password
+
+  403:
+    message: Forbidden
+    description: Access is forbidden to the requested page
+
+  404:
+    message: Not Found
+    description: No hay ningun pelade aca
+
+  405:
+    message: Method Not Allowed
+    description: The method specified in the request is not allowed
+
+  407:
+    message: Proxy Authentication Required
+    description: You must authenticate with a proxy server before this request can be served
+
+  408:
+    message: Request Timeout
+    description: The request took longer than the server was prepared to wait
+
+  409:
+    message: Conflict
+    description: The request could not be completed because of a conflict
+
+  410:
+    message: Gone
+    description: The requested page is no longer available
+
+  411:
+    message: Length Required
+    description: The "Content-Length" is not defined. The server will not accept the request without it
+
+  412:
+    message: Precondition Failed
+    description: The pre condition given in the request evaluated to false by the server
+
+  413:
+    message: Payload Too Large
+    description: The server will not accept the request, because the request entity is too large
+
+  416:
+    message: Requested Range Not Satisfiable
+    description: The requested byte range is not available and is out of bounds
+
+  418:
+    message: I'm a teapot
+    description: Attempt to brew coffee with a teapot is not supported
+
+  429:
+    message: Too Many Requests
+    description: Too many requests in a given amount of time
+
+  500:
+    message: Internal Server Error
+    description: The server met an unexpected condition
+
+  502:
+    message: Bad Gateway
+    description: The server received an invalid response from the upstream server
+
+  503:
+    message: Service Unavailable
+    description: The server is temporarily overloading or down
+
+  504:
+    message: Gateway Timeout
+    description: The gateway has timed out
+
+  505:
+    message: HTTP Version Not Supported
+    description: The server does not support the "http protocol" version

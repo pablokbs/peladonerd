@@ -1,0 +1,25 @@
+# Hay que correr esto antes de empezar para que kustomize encuentre helm
+# export helmCommand=/usr/local/bin/helm
+
+helmCharts:
+- name: ingress-nginx
+  repo: https://kubernetes.github.io/ingress-nginx
+  version: 4.10.0
+  releaseName: nginx
+  valuesInline:
+    controller:
+      config:
+        custom-http-errors: >-
+          401,403,404,500,501,502,503
+      service:
+        type: NodePort
+    defaultBackend:
+      enabled: true
+      image:
+        repository: ghcr.io/tarampampam/error-pages
+        tag: latest # No hagan esto en casa
+      extraEnvs:
+      - name: TEMPLATE_NAME # Opcional: cambiar el tema default
+        value: ghost
+      - name: SHOW_DETAILS # Opcional: mostrar info extra en las paginas
+        value: 'true'

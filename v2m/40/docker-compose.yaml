@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  error-page:
+    image: tarampampam/error-pages:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - TEMPLATE_NAME=i-said-random
+      - SHOW_DETAILS=true
+      - CONFIG_FILE=/opt/error-pages.yml
+    volumes:
+      - ./error-pages.yml:/opt/error-pages.yml
