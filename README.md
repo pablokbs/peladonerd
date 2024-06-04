@@ -99,6 +99,8 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    15. [Comandos Linux 3](./varios/15) / [video](https://youtu.be/FQUnw_P4Rcc)
    16. [Comandos Raros Linux](./varios/16) / [video](https://youtu.be/oI4Hy3J6Er0)
    17. [Ollama](./varios/17) / [video](https://youtu.be/gOJvQnC-7r8)
+   18. [Wasm](./varios/18) / [video](https://youtu.be/bgWTf3m6HG0)
+   19. [Excalidraw](./varios/19) / [video](https://youtu.be/Z5W68WXldr0)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)

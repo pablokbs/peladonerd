@@ -1,0 +1,8 @@
+FROM emscripten/emsdk
+
+WORKDIR /app
+
+COPY helloworld.c .
+RUN emcc helloworld.c -o helloworld.wasm
+
+ENTRYPOINT [ "/app/helloworld.wasm" ]
