@@ -98,7 +98,7 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    14. [Mastodon](./varios/14) / [video](https://youtu.be/umI-RzfzwMQ)
    15. [Comandos Linux 3](./varios/15) / [video](https://youtu.be/FQUnw_P4Rcc)
    16. [Comandos Raros Linux](./varios/16) / [video](https://youtu.be/oI4Hy3J6Er0)
-   17. [Ollama](./varios/17) / [video](https://youtu.be/gOJvQnC-7r8)
+   17. [Ollama](./varios/17) / [video](https://youtu.be/OmLKfDoAfyM)
    18. [Wasm](./varios/18) / [video](https://youtu.be/bgWTf3m6HG0)
    19. [Excalidraw](./varios/19) / [video](https://youtu.be/Z5W68WXldr0)
 
