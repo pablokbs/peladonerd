@@ -1,0 +1,13 @@
+# El cluster lo instalé con minikube
+# minikube start
+# minikube addons enable metrics-server
+
+# Despues usar kustomize para instalar los recursos
+# El server-side apply es necesario para Keda
+# kustomize build . | kubectl apply --server-side -f -
+# Exponer service: minikube service hello-v1-svc --url
+
+resources:
+- https://github.com/kedacore/keda/releases/download/v2.15.1/keda-2.15.1.yaml
+- hello-app.yaml
+- hello-hpa.yaml

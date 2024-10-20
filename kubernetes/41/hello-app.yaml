@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-v1
+  template:
+    metadata:
+      labels:
+        app: hello-v1
+    spec:
+      containers:
+      - name: hpa-demo-deployment
+        image: us.gcr.io/k8s-artifacts-prod/hpa-example:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 500m
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-v1-svc
+spec:
+  selector:
+    app: hello-v1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
