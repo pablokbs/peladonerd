@@ -1,0 +1,15 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: hello-v1-apisixroute
+spec:
+  http:
+  - name: hello-v1
+    match:
+      hosts:
+      - hello-v1-apisixroute.minikube.local
+      paths:
+      - /*
+    backends:
+    - serviceName: hello-v1-svc
+      servicePort: 80

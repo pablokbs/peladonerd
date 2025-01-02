@@ -1,0 +1,14 @@
+dashboard:
+  enabled: true
+service:
+  type: NodePort
+ingress-controller:
+  enabled: true
+  config:
+    apisix:
+      serviceName: release-name-apisix-admin
+      adminAPIversion: v3
+    kubernetes:
+      enableGatewayAPI: true
+plugins:
+  - set-header

@@ -1,0 +1,15 @@
+# Hay que correr esto antes de empezar para que kustomize encuentre helm
+# export helmCommand=/opt/homebrew/bin/helm
+
+resources:
+ - namespaces.yaml
+ - hello-app-v1.yaml
+
+helmCharts:
+- name: apisix
+  namespace: ingress-apisix
+  repo: https://charts.apiseven.com
+  version: 2.10.0
+  valuesFile: apisix-values.yaml
+  includeCRDs: true
+
