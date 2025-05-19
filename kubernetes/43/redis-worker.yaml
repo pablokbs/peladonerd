@@ -1,0 +1,57 @@
+# redis-worker-script-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-worker-script
+data:
+  worker.py: |
+    import redis
+    import time
+    import os
+
+    redis_host = os.getenv("REDIS_HOST", "localhost")
+    redis_queue = os.getenv("REDIS_QUEUE", "myqueue")
+
+    r = redis.Redis(host=redis_host, port=6379)
+
+    print(f"Worker started. Listening on queue: {redis_queue}", flush=True)
+    while True:
+        task = r.blpop(redis_queue, timeout=0)
+        if task:
+            print(f"Processing task: {task[1].decode('utf-8')}", flush=True)
+        time.sleep(1)
+
+---
+# redis-worker-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-worker
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: redis-worker
+  template:
+    metadata:
+      labels:
+        app: redis-worker
+    spec:
+      containers:
+      - name: worker
+        image: python:3.11
+        command: ["bash", "-c"]
+        args:
+          - pip install redis && python /app/worker.py
+        volumeMounts:
+        - name: script-volume
+          mountPath: /app
+        env:
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_QUEUE
+          value: "myqueue"
+      volumes:
+      - name: script-volume
+        configMap:
+          name: redis-worker-script

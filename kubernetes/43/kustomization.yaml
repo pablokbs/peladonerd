@@ -1,0 +1,14 @@
+# Hay que correr esto antes de empezar para que kustomize encuentre helm
+# export helmCommand=/opt/homebrew/bin/helm
+
+resources:
+ - namespaces.yaml
+ - redis.yaml
+ - redis-worker.yaml
+ - keda-scaledobject.yaml
+
+helmCharts:
+- name: keda
+  namespace: keda
+  repo: https://kedacore.github.io/charts
+

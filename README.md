@@ -81,7 +81,8 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    39. [fluent-bit](./kubernetes/39) / [video](https://youtu.be/bwoxefs057g)
    40. [cluster-autoscaler](./kubernetes/40) / [video](https://youtu.be/BpEia0P1jMo)
    41. [wasm](./kubernetes/41) / [video](https://youtu.be/bgWTf3m6HG0)
-   42. [apisix](./kubernetes/42) / [video]()
+   42. [apisix](./kubernetes/42) / [video](https://youtu.be/9SAIubzbgi8)
+   43. [keda](./kubernetes/43) / [video](https://youtu.be/6tm1u57_jmo)   
 
 4. Varios
    1. [Creá tu sitio con SSL gratis con Docker y Let's encrypt](./varios/1) / [video](https://youtu.be/S2YFqf4L7l8)

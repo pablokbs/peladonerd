@@ -1,0 +1,20 @@
+# Ejemplo con Prometheus
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: http-queue-scaler
+spec:
+  scaleTargetRef:
+    name: my-http-service
+  pollingInterval: 10       # consulta cada 10 segundos
+  cooldownPeriod: 30        # espera 30s para escalar a 0
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://prometheus.monitoring.svc.cluster.local:9090
+        metricName: http_requests_queued
+        query: |
+          http_requests_queued{job="my-http-service"}
+        threshold: "100"    # si supera 100 requests encolados, escala

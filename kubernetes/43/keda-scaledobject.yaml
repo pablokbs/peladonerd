@@ -1,0 +1,18 @@
+# keda-scaledobject.yaml
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: redis-scaledobject
+spec:
+  scaleTargetRef:
+    name: redis-worker
+  pollingInterval: 5 # Optional. Default: 30 seconds
+  cooldownPeriod: 30
+  minReplicaCount: 0
+  maxReplicaCount: 5
+  triggers:
+  - type: redis
+    metadata:
+      address: redis.default:6379
+      listName: myqueue
+      listLength: "5" # The length of the list to trigger scaling
