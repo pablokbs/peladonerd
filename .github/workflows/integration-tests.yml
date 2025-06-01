@@ -58,7 +58,7 @@ jobs:
         filename: coverage.json
         label: coverage
         message: ${{ env.COVERAGE }}
-        color: ${{ env.COLOR }}
+        color: ${{ env.COVERAGE_COLOR }}
         namedLogo: python
 
     - name: Upload coverage reports to Codecov

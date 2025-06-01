@@ -1,16 +1,25 @@
 import json
 import sys
+import os
+
+def get_badge_color(coverage_pct):
+    if coverage_pct >= 90:
+        return "brightgreen"
+    elif coverage_pct >= 80:
+        return "green"
+    elif coverage_pct >= 70:
+        return "yellow"
+    elif coverage_pct >= 60:
+        return "orange"
+    return "red"
 
 def generate_badge(coverage_pct):
-    color = "red"
-    if coverage_pct >= 90:
-        color = "brightgreen"
-    elif coverage_pct >= 80:
-        color = "green"
-    elif coverage_pct >= 70:
-        color = "yellow"
-    elif coverage_pct >= 60:
-        color = "orange"
+    color = get_badge_color(coverage_pct)
+    
+    # Set GitHub Actions environment variables
+    with open(os.environ['GITHUB_ENV'], 'a') as f:
+        f.write(f"COVERAGE={coverage_pct}%\n")
+        f.write(f"COVERAGE_COLOR={color}\n")
 
     badge_json = {
         "schemaVersion": 1,
