@@ -2,7 +2,7 @@
 
 [![Node.js CI](https://github.com/pablokbs/peladonerd/actions/workflows/tests.yml/badge.svg)](https://github.com/pablokbs/peladonerd/actions/workflows/tests.yml)
 [![Integration Tests](https://github.com/pablokbs/peladonerd/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/pablokbs/peladonerd/actions/workflows/integration-tests.yml)
-[![Coverage](./integration/coverage.svg)](./integration/coverage.svg)
+![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/pablokbs/04afb0f414aa2cc4dd88a133454c7947/raw/coverage.json)
 
 Este proyecto es una demostración de GitHub Actions que incluye:
 

@@ -42,10 +42,24 @@ jobs:
 
     - name: Run integration tests with coverage
       run: |
-        pytest --cov=. --cov-report=xml --cov-report=term-missing -v
-        coverage-badge -o coverage.svg
+        pytest --cov=. --cov-report=xml --cov-report=json --cov-report=term-missing -v
       env:
         DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testdb
+
+    - name: Generate coverage badge
+      run: |
+        python generate_badge.py
+        
+    - name: Create coverage badge
+      uses: schneegans/dynamic-badges-action@v1.7.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: ${{ secrets.COVERAGE_GIST_ID }}
+        filename: coverage.json
+        label: coverage
+        message: ${{ env.COVERAGE }}
+        color: ${{ env.COLOR }}
+        namedLogo: python
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4
@@ -60,19 +74,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
-        path: varios/21/integration/coverage.xml
-
-    - name: Store coverage badge
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-badge
-        path: varios/21/integration/coverage.svg
-
-    - name: Commit coverage badge
-      if: github.ref == 'refs/heads/master'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add coverage.svg
-        git commit -m "Update coverage badge" || echo "No changes to commit"
-        git push 
+        path: |
+          varios/21/integration/coverage.xml
+          varios/21/integration/coverage.json
+          varios/21/integration/coverage-badge.json 
