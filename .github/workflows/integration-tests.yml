@@ -1,0 +1,80 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [ master, test ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: varios/21/integration
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        cache-dependency-path: varios/21/integration/requirements.txt
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run integration tests with coverage
+      run: |
+        pytest --cov=. --cov-report=xml --cov-report=json --cov-report=term-missing -v
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testdb
+
+    - name: Generate coverage badge
+      run: |
+        python generate_badge.py
+        
+    - name: Create coverage badge
+      uses: schneegans/dynamic-badges-action@v1.7.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: ${{ secrets.COVERAGE_GIST_ID }}
+        filename: coverage.json
+        label: coverage
+        message: ${{ env.COVERAGE }}
+        color: ${{ env.COLOR }}
+        namedLogo: python
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./varios/21/integration/coverage.xml
+        flags: integration
+        name: integration-tests
+        fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Store coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: |
+          varios/21/integration/coverage.xml
+          varios/21/integration/coverage.json
+          varios/21/integration/coverage-badge.json 
