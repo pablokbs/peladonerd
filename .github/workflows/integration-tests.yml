@@ -40,7 +40,39 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Run integration tests
-      run: pytest -v
+    - name: Run integration tests with coverage
+      run: |
+        pytest --cov=. --cov-report=xml --cov-report=term-missing -v
+        coverage-badge -o coverage.svg
       env:
-        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testdb 
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testdb
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./varios/21/integration/coverage.xml
+        flags: integration
+        name: integration-tests
+        fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Store coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: varios/21/integration/coverage.xml
+
+    - name: Store coverage badge
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-badge
+        path: varios/21/integration/coverage.svg
+
+    - name: Commit coverage badge
+      if: github.ref == 'refs/heads/master'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add coverage.svg
+        git commit -m "Update coverage badge" || echo "No changes to commit"
+        git push 

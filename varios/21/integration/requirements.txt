@@ -1,2 +1,4 @@
 psycopg2-binary==2.9.9
-pytest==8.0.0 
+pytest==8.0.0
+pytest-cov==4.1.0
+coverage-badge==1.1.0 
