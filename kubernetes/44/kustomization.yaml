@@ -1,0 +1,12 @@
+# El cluster lo instalé con minikube
+# minikube start
+# minikube addons enable ingress
+
+# Despues usar kustomize para instalar los recursos
+# kustomize build . | kubectl apply -f -
+
+resources:
+- gateway-class.yaml
+- gateway.yaml
+- backend.yaml
+- httproute.yaml
