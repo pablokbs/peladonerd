@@ -1,12 +1,10 @@
-# El cluster lo instalé con minikube
-# minikube start
-# minikube addons enable ingress
-
-# Despues usar kustomize para instalar los recursos
 # kustomize build . | kubectl apply -f -
 
 resources:
-- gateway-class.yaml
-- gateway.yaml
-- backend.yaml
-- httproute.yaml
+- quickstart.yaml #gatewayClass y gateway
+
+helmCharts:
+- name: gateway-helm
+  namespace: envoy-gateway-system
+  repo: oci://docker.io/envoyproxy
+  version: 1.4.1
