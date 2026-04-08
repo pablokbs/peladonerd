@@ -106,7 +106,8 @@ Si el nombre del capítulo no tiene link, es porque no necesité postear ningún
    18. [Wasm](./varios/18) / [video](https://youtu.be/bgWTf3m6HG0)
    19. [Excalidraw](./varios/19) / [video](https://youtu.be/Z5W68WXldr0)
    20. [GitHub Actions - Workflows Reutilizables](https://github.com/Pelado-Nerdworks/github-actions-3) / [video](https://youtu.be/U3s47CGmF0k)
-   21. [OpenClaw Experiencia](./varios/21) / [video](https://youtu.be/GVf-JZdJjU8)
+   21. [OpenClaw Experiencia](./openclaw/1) / [video](https://youtu.be/GVf-JZdJjU8)
+   22. [OpenClaw Tutorial](./openclaw/2) / [video](https://youtu.be/JVA09oUTXzM)
 
 5. Viernes 2 Minutos
    1. [Docker-compose override](./v2m/1) / [video](https://youtu.be/TPmbwAgN4ZA)
