@@ -44,7 +44,10 @@ Para crear un Bot de Telegram es super simple ([guía oficial](https://docs.open
 
 ### Despliegue de Servidor
 
-Para instalar OpenClaw, vamos a hacerlo en un servidor de Upcloud
+Para instalar OpenClaw, vamos a hacerlo en un servidor de Upcloud.
+
+> [!TIP]
+> Usá mi código `pelado250` para obtener 250 USD en tu cuenta nueva en [Upcloud!](https://signup.upcloud.com/?promo=pelado250)
 
 Para esto necesitamos ir a nuestro Dashboard de Upcloud y desplegar un nuevo servidor.
 
